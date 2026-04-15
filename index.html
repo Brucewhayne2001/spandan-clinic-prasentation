@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spandan Super Speciality Clinic — Digital Growth Proposal</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap');
+
+  /* ============================================================
+     REFINED COLOUR PALETTE — All 5 purposeful colours
+     Deep Rose · Deep Teal · Navy · Emerald · Warm Amber
+  ============================================================ */
+  :root {
+    --pink:     #B5187A;   /* Deep Rose — was neon #E91E8C */
+    --teal:     #007B8A;   /* Deep Teal — was cyan #00BCD4 */
+    --dark:     #0D1B3E;   /* Rich Navy — was #1a1a2e      */
+    --darker:   #060B18;   /* Deep Navy — was #0f0f23      */
+    --green:    #1B7A4B;   /* Emerald   — was neon #00C853 */
+    --orange:   #C8882A;   /* Warm Amber— was #FF6D00      */
+    --red:      #C0392B;   /* Crisis Red— was #F44336      */
+    --purple:   #5E1F8A;   /* Plum      — was #7B1FA2      */
+    --light-bg: #F4F6FB;
+    --white:    #ffffff;
+    --card-shadow: 0 8px 32px rgba(13,27,62,0.10);
+  }
+
+  html { scroll-behavior: smooth; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--light-bg);
+    color: #2d2d2d;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #060B18 0%, #0D1B3E 40%, #112244 70%, #0a2255 100%);
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; position: relative;
+    overflow: hidden; padding: 60px 40px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(181,24,122,0.18) 0%, transparent 70%);
+    top: -100px; right: -100px; border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,123,138,0.13) 0%, transparent 70%);
+    bottom: -100px; left: -100px; border-radius: 50%;
+  }
+  .hero-logo-area {
+    background: white; border-radius: 20px;
+    padding: 20px 40px; margin-bottom: 40px;
+    box-shadow: 0 20px 60px rgba(181,24,122,0.25);
+    position: relative; z-index: 2;
+  }
+  .hero-logo-area .clinic-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem; font-weight: 900;
+    color: var(--pink); letter-spacing: 6px;
+  }
+  .hero-logo-area .butterfly { font-size: 2.2rem; display: block; text-align: center; margin-bottom: 5px; }
+  .hero-logo-area .tagline-logo {
+    font-size: 0.85rem; color: var(--teal);
+    font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.9rem; font-weight: 900; color: white;
+    line-height: 1.2; margin-bottom: 20px;
+    position: relative; z-index: 2;
+  }
+  .hero h1 span { color: var(--pink); }
+  .hero h1 em   { color: #4DD6E0; font-style: normal; }
+  .hero-subtitle {
+    font-size: 1.15rem; color: rgba(255,255,255,0.82);
+    max-width: 720px; line-height: 1.85;
+    position: relative; z-index: 2; margin-bottom: 40px;
+  }
+  .hero-meta {
+    display: flex; gap: 30px; flex-wrap: wrap;
+    justify-content: center; position: relative; z-index: 2;
+  }
+  .hero-meta-item {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px; padding: 16px 28px;
+    text-align: center; backdrop-filter: blur(10px);
+  }
+  .hero-meta-item .label { color: #4DD6E0; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .hero-meta-item .value { color: white; font-size: 1rem; font-weight: 700; margin-top: 4px; }
+
+  /* ===== EXEC SUMMARY STRIP ===== */
+  .exec-strip {
+    background: linear-gradient(135deg, var(--dark), #1a3060);
+    padding: 32px 60px; color: white;
+    display: flex; gap: 0; justify-content: center;
+    flex-wrap: wrap;
+  }
+  .exec-item {
+    flex: 1; min-width: 160px; text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .exec-item:last-child { border-right: none; }
+  .exec-num { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: #4DD6E0; }
+  .exec-label { font-size: 0.8rem; opacity: 0.75; margin-top: 4px; }
+
+  /* ===== SECTIONS ===== */
+  .section { padding: 80px 60px; max-width: 1300px; margin: 0 auto; }
+  .section-full { padding: 80px 60px; }
+
+  /* ===== STEP HEADER ===== */
+  .step-header { display: flex; align-items: center; gap: 24px; margin-bottom: 50px; }
+  .step-number-badge {
+    width: 80px; height: 80px; border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 900;
+    color: white; flex-shrink: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  }
+  .step-header-text h2 {
+    font-family: 'Montserrat', sans-serif; font-size: 2rem;
+    font-weight: 800; color: var(--dark); line-height: 1.2;
+  }
+  .step-header-text p { color: #666; font-size: 1rem; margin-top: 6px; }
+
+  /* ===== SECTION PILL — now with topic labels ===== */
+  .section-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white; font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 2px;
+    padding: 7px 20px; border-radius: 30px; margin-bottom: 16px;
+  }
+
+  /* ===== BANNER STRIPS ===== */
+  .banner-strip-container { display: flex; flex-direction: column; gap: 16px; margin: 40px 0; }
+  .banner-strip {
+    display: flex; align-items: center;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    min-height: 80px; transition: transform 0.22s;
+  }
+  .banner-strip:hover { transform: translateX(8px); }
+  .banner-strip-num {
+    width: 90px; display: flex; align-items: center;
+    justify-content: center; font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem; font-weight: 900; color: white; padding: 20px; flex-shrink: 0;
+  }
+  .banner-strip-content { flex: 1; padding: 20px 30px; background: white; }
+  .banner-strip-content strong { font-size: 1.05rem; display: block; color: var(--dark); }
+  .banner-strip-content span  { font-size: 0.88rem; color: #666; }
+  .banner-strip-icon { width: 60px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; padding: 20px; flex-shrink: 0; background: rgba(0,0,0,0.03); }
+
+  /* ===== STAT CARDS — two rose + two teal (no more 4 random colours) ===== */
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin: 40px 0; }
+  .stat-card {
+    background: white; border-radius: 20px; padding: 36px 28px;
+    text-align: center; box-shadow: var(--card-shadow);
+    position: relative; overflow: hidden; transition: transform 0.3s;
+  }
+  .stat-card:hover { transform: translateY(-8px); }
+  .stat-card .big-number { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 900; line-height: 1; margin-bottom: 12px; }
+  .stat-card .stat-desc { font-size: 0.95rem; color: #555; line-height: 1.5; }
+
+  /* ===== DARK SECTION ===== */
+  .dark-section {
+    background: linear-gradient(135deg, #060B18 0%, #0D1B3E 50%, #0a2255 100%);
+    padding: 80px 60px; color: white;
+  }
+  .dark-section h2 { color: white; }
+  .dark-section p  { color: rgba(255,255,255,0.85); }
+
+  /* ===== COMPETITOR TABLE ===== */
+  .competitor-table-wrap { overflow-x: auto; border-radius: 16px; box-shadow: var(--card-shadow); margin: 30px 0; }
+  .competitor-table { width: 100%; border-collapse: collapse; background: white; font-size: 0.95rem; }
+  .competitor-table thead { background: linear-gradient(135deg, var(--dark), #1a3060); }
+  .competitor-table thead th { padding: 18px 20px; text-align: left; color: white; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+  .competitor-table tbody tr:nth-child(even) { background: #f4f6fb; }
+  .competitor-table tbody tr:hover { background: #f0e8f6; }
+  .competitor-table td { padding: 16px 20px; border-bottom: 1px solid #eee; }
+  .competitor-table .spandan-row { background: linear-gradient(135deg, #fce8f3, #e8f4fb) !important; font-weight: 700; }
+  .competitor-table .spandan-row td { color: var(--pink); }
+  .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+
+  /* ===== STORY CARD ===== */
+  .story-card {
+    background: white; border-radius: 24px; padding: 50px;
+    box-shadow: var(--card-shadow); border-left: 6px solid var(--orange);
+    margin: 40px 0; position: relative; overflow: hidden;
+  }
+  .story-card::after {
+    content: '"'; position: absolute; top: -20px; right: 30px;
+    font-size: 200px; color: rgba(181,24,122,0.04);
+    font-family: Georgia, serif; line-height: 1;
+  }
+
+  /* ===== REVIEW TABLE ===== */
+  .review-table { width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow); margin: 30px 0; }
+  .review-table thead { background: linear-gradient(135deg, var(--red), #e05020); }
+  .review-table thead th { padding: 18px 24px; color: white; font-weight: 700; text-align: left; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+  .review-table tbody tr { background: white; }
+  .review-table tbody tr:nth-child(even) { background: #fdf3f3; }
+  .review-table td { padding: 16px 24px; border-bottom: 1px solid #f0d0d0; font-size: 0.95rem; }
+
+  /* ===== REPUTATION STEPS ===== */
+  .rep-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; }
+  .rep-step { background: white; border-radius: 16px; padding: 30px 20px; text-align: center; box-shadow: var(--card-shadow); transition: transform 0.3s; }
+  .rep-step:hover { transform: translateY(-6px); }
+  .rep-step-icon { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+  .rep-step-title { font-weight: 700; font-size: 1rem; color: var(--dark); margin-bottom: 8px; }
+  .rep-step-desc  { font-size: 0.85rem; color: #666; line-height: 1.5; }
+
+  /* ===== SCREENSHOT PLACEHOLDER — improved ===== */
+  .screenshot-placeholder {
+    background: white; border-radius: 16px; padding: 30px 24px;
+    border: 2px dashed #C8D0E8; text-align: center;
+    box-shadow: var(--card-shadow); position: relative; overflow: hidden;
+  }
+  .screenshot-placeholder::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  }
+  .screenshot-placeholder .ph-icon { font-size: 2.5rem; margin-bottom: 12px; display: block; }
+  .screenshot-placeholder .ph-title { font-weight: 700; font-size: 0.95rem; color: var(--dark); margin-bottom: 6px; }
+  .screenshot-placeholder .ph-desc { font-size: 0.82rem; color: #888; line-height: 1.5; }
+  .screenshot-placeholder .ph-action {
+    display: inline-block; margin-top: 14px;
+    background: var(--light-bg); border: 1px solid #C8D0E8;
+    padding: 6px 16px; border-radius: 20px;
+    font-size: 0.78rem; color: #666; font-weight: 600;
+  }
+
+  /* ===== FOUR-COL ADVANTAGE GRID ===== */
+  .four-col-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-radius: 20px; overflow: hidden; box-shadow: var(--card-shadow); margin: 40px 0; }
+  .four-col-card { padding: 40px 24px; text-align: center; color: white; position: relative; overflow: hidden; }
+  .four-col-card::before { content: ''; position: absolute; top: -40px; right: -40px; width: 100px; height: 100px; background: rgba(255,255,255,0.08); border-radius: 50%; }
+  .four-col-num { font-family: 'Montserrat', sans-serif; font-size: 4rem; font-weight: 900; opacity: 0.25; line-height: 1; margin-bottom: 10px; }
+  .four-col-icon  { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+  .four-col-title { font-weight: 800; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .four-col-text  { font-size: 0.82rem; opacity: 0.9; line-height: 1.6; }
+
+  /* ===== APP FEATURES ===== */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 40px 0; }
+  .feature-card { background: white; border-radius: 20px; padding: 32px 28px; box-shadow: var(--card-shadow); border-top: 4px solid transparent; transition: transform 0.3s, box-shadow 0.3s; }
+  .feature-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.13); }
+  .feature-icon-wrap { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 20px; }
+  .feature-title { font-weight: 700; font-size: 1.1rem; color: var(--dark); margin-bottom: 10px; }
+  .feature-pills { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+  .pill { display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: #555; background: var(--light-bg); padding: 8px 12px; border-radius: 8px; }
+  .pill-label { font-weight: 600; color: #999; font-size: 0.75rem; min-width: 60px; }
+
+  /* ===== PRICING ===== */
+  .price-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: var(--card-shadow); }
+  .price-card-header { padding: 32px; text-align: center; color: white; }
+  .price-card-header h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 6px; }
+  .price-card-body { padding: 32px; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed #eee; font-size: 0.95rem; }
+  .price-row:last-child { border-bottom: none; }
+  .price-row .amount { font-weight: 700; color: var(--dark); }
+  .price-row.total-row { background: #edf6f0; margin: 10px -32px -32px; padding: 20px 32px; border-radius: 0 0 24px 24px; }
+  .price-row.total-row .amount { font-size: 1.3rem; color: var(--dark); font-weight: 900; }
+
+  /* ===== PAYBACK CALLOUT ===== */
+  .payback-box {
+    background: linear-gradient(135deg, #e8f4eb, #dff0f6);
+    border-left: 5px solid var(--green); border-radius: 0 16px 16px 0;
+    padding: 24px 28px; margin: 24px 0;
+  }
+  .payback-box h4 { font-weight: 800; color: var(--green); font-size: 1.1rem; margin-bottom: 6px; }
+  .payback-box p  { font-size: 0.9rem; color: #444; line-height: 1.6; }
+
+  /* ===== VS COMPARISON ===== */
+  .vs-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: start; margin: 40px 0; }
+  .vs-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--card-shadow); }
+  .vs-header { padding: 20px 24px; font-weight: 800; font-size: 1rem; text-align: center; color: white; }
+  .vs-item { padding: 14px 20px; font-size: 0.9rem; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
+  .vs-badge {
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: white;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0; align-self: center;
+    box-shadow: 0 10px 30px rgba(181,24,122,0.3);
+  }
+
+  /* ===== CHART CONTAINERS ===== */
+  .chart-container { background: white; border-radius: 20px; padding: 40px; box-shadow: var(--card-shadow); margin: 30px 0; }
+  .chart-title { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--dark); margin-bottom: 8px; text-align: center; }
+  .chart-subtitle { font-size: 0.82rem; color: #888; text-align: center; margin-bottom: 24px; }
+
+  /* ===== CTA SECTION ===== */
+  .cta-section { background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%); padding: 100px 60px; text-align: center; color: white; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; width: 500px; height: 500px; background: rgba(255,255,255,0.05); border-radius: 50%; top: -200px; right: -200px; }
+  .cta-section::after  { content: ''; position: absolute; width: 400px; height: 400px; background: rgba(255,255,255,0.04); border-radius: 50%; bottom: -150px; left: -100px; }
+  .cta-section h2 { font-family: 'Montserrat', sans-serif; font-size: 2.6rem; font-weight: 900; margin-bottom: 16px; position: relative; z-index: 2; line-height: 1.3; }
+  .cta-section p  { font-size: 1.1rem; opacity: 0.92; max-width: 600px; margin: 0 auto 40px; position: relative; z-index: 2; line-height: 1.7; }
+  .cta-btn { display: inline-block; background: white; color: var(--pink); padding: 18px 50px; border-radius: 50px; font-size: 1.05rem; font-weight: 800; text-decoration: none; box-shadow: 0 10px 40px rgba(0,0,0,0.2); position: relative; z-index: 2; transition: transform 0.2s; }
+  .cta-btn:hover { transform: translateY(-3px); }
+
+  /* ===== 3-CHOICE SECTION ===== */
+  .three-choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
+  .choice-card { border-radius: 20px; overflow: hidden; box-shadow: var(--card-shadow); }
+  .choice-header { padding: 30px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 900; color: white; }
+  .choice-body { background: white; padding: 30px; }
+  .choice-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 0.9rem; color: #555; }
+  .choice-item:last-child { border-bottom: none; }
+  .choice-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  /* ===== BACKGROUNDS ===== */
+  .bg-white    { background: white; }
+  .bg-light    { background: var(--light-bg); }
+  .bg-gradient { background: linear-gradient(135deg, #f4f6fb 0%, #f8eef6 50%, #edf5fb 100%); }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--dark), #1a3060);
+    border-radius: 16px; padding: 28px 32px; color: white;
+    text-align: center; font-size: 1.05rem; font-weight: 500;
+    line-height: 1.8; margin: 24px 0; border-left: 5px solid var(--pink);
+  }
+  .highlight-box strong { color: #4DD6E0; }
+
+  /* ===== COMPETITIVE MOAT BOX ===== */
+  .moat-box {
+    background: linear-gradient(135deg, var(--dark), #1a3060);
+    border-radius: 16px; padding: 28px 36px; color: white;
+    margin: 30px 0; border-left: 5px solid var(--teal);
+  }
+  .moat-box h4 { color: #4DD6E0; font-size: 1rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .moat-box p  { font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.9); }
+
+  /* ===== PROOF GRID ===== */
+  .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 30px 0; }
+  .proof-card { background: white; border-radius: 16px; padding: 28px 20px; box-shadow: var(--card-shadow); text-align: center; transition: transform 0.3s; border-top: 3px solid var(--teal); }
+  .proof-card:hover { transform: translateY(-5px); }
+  .proof-card-icon  { font-size: 2rem; margin-bottom: 12px; }
+  .proof-card-title { font-weight: 700; color: var(--dark); margin-bottom: 6px; font-size: 0.95rem; }
+  .proof-card-text  { font-size: 0.85rem; color: #666; line-height: 1.5; }
+
+  /* ===== LAYOUT UTILITIES ===== */
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; padding-left: 40px; margin: 30px 0; }
+  .timeline::before { content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--pink), var(--teal)); border-radius: 3px; }
+  .timeline-item { position: relative; margin-bottom: 30px; }
+  .timeline-item::before { content: ''; position: absolute; left: -34px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--pink); border: 3px solid white; box-shadow: 0 0 0 3px var(--pink); }
+  .timeline-item h4 { font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .timeline-item p  { font-size: 0.9rem; color: #555; line-height: 1.6; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .two-col        { grid-template-columns: 1fr; }
+    .four-col-grid  { grid-template-columns: 1fr 1fr; }
+    .exec-strip     { gap: 20px; }
+    .exec-item      { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 12px 0; }
+  }
+  @media (max-width: 768px) {
+    .hero h1        { font-size: 1.8rem; }
+    .section, .section-full, .dark-section, .cta-section { padding: 50px 24px; }
+    .four-col-grid  { grid-template-columns: 1fr 1fr; }
+    .three-choice-grid { grid-template-columns: 1fr; }
+    .vs-grid        { grid-template-columns: 1fr; }
+    .banner-strip-num { width: 72px; font-size: 1.3rem; }
+  }
+
+  .page-break { page-break-before: always; }
+
+  /* ===== COST OF INACTION TABLE ===== */
+  .loss-table { width:100%; border-collapse:collapse; border-radius:16px; overflow:hidden; box-shadow:var(--card-shadow); margin:30px 0; font-size:0.95rem; }
+  .loss-table thead { background:linear-gradient(135deg,var(--red),#8B1A1A); }
+  .loss-table thead th { padding:16px 20px; color:white; font-weight:700; text-align:left; text-transform:uppercase; letter-spacing:1px; font-size:0.88rem; }
+  .loss-table tbody tr { background:white; }
+  .loss-table tbody tr:nth-child(even) { background:#fff8f8; }
+  .loss-table td { padding:14px 20px; border-bottom:1px solid #fde; }
+  .loss-table tfoot td { background:linear-gradient(135deg,#fce8e8,#fff0e0); font-weight:800; font-size:1rem; padding:18px 20px; color:var(--red); }
+
+  /* ===== LOSS HIGHLIGHT BOX ===== */
+  .loss-highlight {
+    background:linear-gradient(135deg,#fce8e8,#fff3e0);
+    border:2px solid var(--red); border-radius:16px;
+    padding:28px 32px; margin:24px 0; text-align:center;
+  }
+  .loss-highlight .loss-big { font-family:'Montserrat',sans-serif; font-size:2.8rem; font-weight:900; color:var(--red); line-height:1; margin-bottom:8px; }
+  .loss-highlight .loss-desc { font-size:0.9rem; color:#666; line-height:1.5; }
+
+  /* ===== PATIENT JOURNEY FLOW ===== */
+  .journey-flow { display:flex; flex-direction:column; gap:0; margin:28px auto; max-width:560px; }
+  .journey-step-item { background:white; border-radius:10px; padding:14px 22px; font-size:0.92rem; font-weight:600; color:var(--dark); border:1px solid #C8D0E8; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+  .journey-step-item.danger { background:linear-gradient(135deg,var(--red),#8B1A1A); color:white; border:none; }
+  .journey-arrow-down { text-align:center; font-size:1.4rem; color:var(--teal); margin:4px 0; opacity:0.7; }
+
+  /* ===== IMPLEMENTATION TIMELINE ===== */
+  .impl-timeline { margin:30px 0; }
+  .impl-tl-item { display:flex; gap:20px; margin-bottom:20px; }
+  .impl-tl-dot {
+    width:54px; height:54px; border-radius:50%;
+    background:linear-gradient(135deg,var(--pink),var(--purple)); color:white;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.72rem; font-weight:800; flex-shrink:0; text-align:center; line-height:1.3; letter-spacing:0.5px;
+  }
+  .impl-tl-content { flex:1; background:white; border-radius:16px; padding:20px 24px; box-shadow:var(--card-shadow); border-left:4px solid var(--teal); }
+  .impl-tl-content h4 { font-size:1rem; font-weight:800; color:var(--dark); margin-bottom:10px; }
+  .impl-tl-content ul { list-style:none; }
+  .impl-tl-content ul li { font-size:0.88rem; color:#555; padding:4px 0; display:flex; gap:8px; align-items:flex-start; }
+  .impl-tl-content ul li::before { content:'→'; color:var(--teal); font-weight:700; flex-shrink:0; }
+  .impl-time-badge { display:inline-block; background:var(--light-bg); border:1px solid #C8D0E8; border-radius:20px; padding:3px 12px; font-size:0.78rem; font-weight:600; color:var(--teal); margin-top:8px; }
+
+  /* ===== 90-DAY GUARANTEE ===== */
+  .guarantee-section { background:linear-gradient(135deg,var(--dark) 0%,#1a3060 50%,#0a2255 100%); border-radius:24px; padding:50px 40px; text-align:center; margin:40px 0; position:relative; overflow:hidden; }
+  .guarantee-section::before { content:''; position:absolute; width:300px; height:300px; background:rgba(181,24,122,0.12); border-radius:50%; top:-100px; right:-80px; }
+  .guarantee-title { font-family:'Montserrat',sans-serif; font-size:1.8rem; font-weight:900; color:#4DD6E0; margin-bottom:16px; position:relative; z-index:2; }
+  .guarantee-subtitle { color:rgba(255,255,255,0.8); font-size:0.95rem; max-width:600px; margin:0 auto 32px; line-height:1.7; position:relative; z-index:2; }
+  .guarantee-items { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin:24px 0; position:relative; z-index:2; }
+  .guarantee-item { background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:20px 24px; text-align:center; min-width:170px; }
+  .guarantee-item .gi-num { font-family:'Montserrat',sans-serif; font-size:2.2rem; font-weight:900; color:#4DD6E0; line-height:1; margin-bottom:6px; }
+  .guarantee-item .gi-label { font-size:0.82rem; color:rgba(255,255,255,0.8); line-height:1.4; }
+  .guarantee-promise { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:22px 28px; margin-top:24px; font-size:1rem; font-style:italic; color:rgba(255,255,255,0.9); line-height:1.7; position:relative; z-index:2; }
+  .guarantee-refund { background:linear-gradient(135deg,var(--green),#0E4A2A); border-radius:10px; padding:12px 24px; display:inline-block; margin-top:16px; font-size:0.9rem; font-weight:700; color:white; position:relative; z-index:2; }
+
+  /* ===== OBJECTION HANDLING ===== */
+  .obj-card { border-radius:16px; overflow:hidden; margin:16px 0; box-shadow:var(--card-shadow); }
+  .obj-q { background:linear-gradient(135deg,var(--dark),#1a3060); color:white; padding:16px 24px; font-weight:700; font-size:0.95rem; }
+  .obj-a { background:white; padding:18px 24px; font-size:0.9rem; line-height:1.75; color:#444; border-left:4px solid var(--teal); }
+
+  /* ===== PRICING PACKAGES ===== */
+  .pkg-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:40px 0; }
+  @media(max-width:900px) { .pkg-grid-3 { grid-template-columns:1fr; } }
+  .pkg-card { border-radius:22px; overflow:visible; box-shadow:var(--card-shadow); border:2px solid #C8D0E8; background:white; position:relative; transition:transform 0.3s; }
+  .pkg-card:hover { transform:translateY(-8px); }
+  .pkg-card.recommended { border-color:var(--pink); background:linear-gradient(160deg,#fff8fc,#f8fbff); }
+  .pkg-badge-top { position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--pink),var(--purple)); color:white; padding:5px 18px; border-radius:20px; font-size:0.78rem; font-weight:700; white-space:nowrap; z-index:5; }
+  .pkg-header { padding:28px 24px 20px; text-align:center; }
+  .pkg-name { font-family:'Montserrat',sans-serif; font-size:1.1rem; font-weight:900; color:var(--dark); margin-bottom:8px; }
+  .pkg-price { font-family:'Montserrat',sans-serif; font-size:2.4rem; font-weight:900; color:var(--pink); margin-bottom:4px; }
+  .pkg-price span { font-size:0.9rem; font-weight:400; color:#888; }
+  .pkg-monthly { font-size:0.9rem; color:var(--teal); font-weight:600; margin-bottom:0; }
+  .pkg-features-list { list-style:none; padding:0 24px 24px; }
+  .pkg-features-list li { padding:8px 0; font-size:0.88rem; color:#555; display:flex; gap:8px; border-bottom:1px dashed #eee; align-items:flex-start; }
+  .pkg-features-list li:last-child { border-bottom:none; }
+  .pkg-features-list li::before { content:'✅'; flex-shrink:0; }
+  .pkg-features-list li.bonus::before { content:'🎁'; }
+
+  /* ===== ADDITIONAL STATS (Wake-Up Call) ===== */
+  .wakeup-stat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin:28px 0; }
+  .wakeup-stat { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.14); border-radius:14px; padding:24px 20px; text-align:center; backdrop-filter:blur(6px); }
+  .wakeup-num { font-family:'Montserrat',sans-serif; font-size:2.4rem; font-weight:900; color:#4DD6E0; line-height:1; margin-bottom:8px; }
+  .wakeup-label { font-size:0.82rem; color:rgba(255,255,255,0.78); line-height:1.4; }
+</style>
+</head>
+<body>
+</style>
+</head>
+<body>
+
+<div style="width: 100%; background: #060B18; text-align: center; border-bottom: 3px solid var(--pink);">
+  <video id="topAutoVideo" autoplay muted playsinline style="width: 100%; max-height: 70vh; object-fit: cover; display: block; outline: none;">
+    <source src="spandan-top.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<script>
+  // Script to make the video play exactly 2 times
+  const topVideo = document.getElementById('topAutoVideo');
+  let playCount = 0;
+
+  topVideo.addEventListener('ended', function() {
+    playCount++;
+    if (playCount < 2) {
+      topVideo.play();
+    }
+  });
+</script>
+<section class="hero">
+  <div class="hero-logo-area">
+    <span class="butterfly">🦋</span>
+    <div class="clinic-name">SPANDAN</div>
+    <div class="tagline-logo">Super Speciality Clinic</div>
+  </div>
+
+  <h1>How Spandan Can Add <span>₹3.2 Lakh</span> in Net Profit<br>This Year — While <em>Competitors Still Sleep</em></h1>
+  <p class="hero-subtitle">
+    A complete, customised digital growth strategy for Spandan Super Speciality Clinic —
+    making you the most visible, trusted, and modern speciality clinic in
+    Chhatrapati Sambhaji Nagar with measurable, trackable revenue growth.
+  </p>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="label">Prepared For</div>
+      <div class="value">Gore Sir — Administrator</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Prepared By</div>
+      <div class="value">Rohit Narhire</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Date</div>
+      <div class="value">11 April 2026</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="label">Investment Recovered By</div>
+      <div class="value">Month 4–8</div>
+    </div>
+  </div>
+</section>
+
+<div class="exec-strip">
+  <div class="exec-item">
+    <div class="exec-num">₹3.2L+</div>
+    <div class="exec-label">Year 1 Net Profit (Realistic)</div>
+  </div>
+  <div class="exec-item">
+    <div class="exec-num">45–60</div>
+    <div class="exec-label">Days to Go Live</div>
+  </div>
+  <div class="exec-item">
+    <div class="exec-num">7</div>
+    <div class="exec-label">Competitors Already Active Online</div>
+  </div>
+  <div class="exec-item">
+    <div class="exec-num">15/100</div>
+    <div class="exec-label">Spandan's Current Visibility Score</div>
+  </div>
+  <div class="exec-item">
+    <div class="exec-num">₹1.95L</div>
+    <div class="exec-label">Total Year 1 Investment</div>
+  </div>
+</div>
+
+
+<div class="dark-section">
+<div class="section-inner" style="max-width:1200px;margin:0 auto;padding:0 60px;">
+  <div class="section-pill" style="background:rgba(255,255,255,0.15);">⚡ Wake-Up Call</div>
+  <br><br>
+  <div class="step-header">
+    <div class="step-number-badge" style="background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.25);">00</div>
+    <div class="step-header-text">
+      <h2 style="color:white;">CSN's Digital Healthcare Reality — 2026</h2>
+      <p style="color:rgba(255,255,255,0.75);">The numbers that prove why going digital is no longer optional for any clinic in Chhatrapati Sambhaji Nagar</p>
+    </div>
+  </div>
+
+  <div class="wakeup-stat-grid">
+    <div class="wakeup-stat">
+      <div class="wakeup-num">17×</div>
+      <div class="wakeup-label">Faster healthcare search growth in Tier-2 cities vs. Mumbai</div>
+    </div>
+    <div class="wakeup-stat">
+      <div class="wakeup-num">75%</div>
+      <div class="wakeup-label">Patients in CSN check Google Maps before visiting any clinic</div>
+    </div>
+    <div class="wakeup-stat">
+      <div class="wakeup-num">350M</div>
+      <div class="wakeup-label">Online appointments in India in 2025 — digital is now primary</div>
+    </div>
+    <div class="wakeup-stat">
+      <div class="wakeup-num">28%</div>
+      <div class="wakeup-label">YoY growth in healthcare searches across India in 2025</div>
+    </div>
+  </div>
+
+  <div style="background:rgba(192,57,43,0.18);border:1px solid rgba(192,57,43,0.45);border-left:5px solid var(--red);border-radius:0 14px 14px 0;padding:22px 28px;margin:24px 0;display:flex;gap:16px;align-items:flex-start;">
+    <span style="font-size:1.6rem;flex-shrink:0;">🚨</span>
+    <div>
+      <strong style="color:#ff8a80;font-size:1rem;">Shocking Truth:</strong>
+      <p style="color:rgba(255,255,255,0.85);font-size:0.95rem;line-height:1.7;margin-top:6px;">Smaller clinics — with <em>fewer</em> specialists than Spandan — are winning more patients, simply because they appear first on Google. Spandan's clinical excellence means nothing if patients can't find it online.</p>
+    </div>
+  </div>
+
+  <div style="background:linear-gradient(135deg,var(--dark),#1a3060);border-left:5px solid #4DD6E0;border-radius:0 16px 16px 0;padding:28px 36px;margin:24px 0;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,0.92);line-height:1.7;">
+    "When a patient searches for a cardiologist or diabetes specialist in CSN tonight — does <strong style="color:#4DD6E0;">Spandan</strong> appear, or do they find your competitor?"
+  </div>
+</div>
+</div>
+
+<div style="width: 100%; background: #000; border-top: 3px solid var(--pink); border-bottom: 3px solid var(--teal); text-align: center;">
+  <video id="spandanVideo" controls style="width: 100%; max-width: 100%; max-height: 85vh; cursor: pointer; display: block; outline: none;">
+    <source src="spandan-promo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<script>
+  // Allow playing/pausing by clicking directly on the video
+  const spandanVideo = document.getElementById('spandanVideo');
+  spandanVideo.addEventListener('click', function() {
+    if (spandanVideo.paused) {
+      spandanVideo.play();
+    } else {
+      spandanVideo.pause();
+    }
+  });
+</script>
+
+<div class="bg-light">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">📊 Market Reality</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--pink),var(--purple))">01</div>
+      <div class="step-header-text">
+        <h2>What Patients Actually Do in 2026</h2>
+        <p>Real data reveals how every new patient decides before entering your door</p>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div style="height:5px;background:linear-gradient(90deg,var(--pink),var(--purple));position:absolute;top:0;left:0;right:0;border-radius:20px 20px 0 0;"></div>
+        <div class="big-number" style="color:var(--pink)">81%</div>
+        <div class="stat-desc">Search Google<br><strong>before visiting any clinic</strong></div>
+      </div>
+      <div class="stat-card">
+        <div style="height:5px;background:linear-gradient(90deg,var(--pink),var(--purple));position:absolute;top:0;left:0;right:0;border-radius:20px 20px 0 0;"></div>
+        <div class="big-number" style="color:var(--pink)">89%</div>
+        <div class="stat-desc">Read reviews<br><strong>before booking appointment</strong></div>
+      </div>
+      <div class="stat-card">
+        <div style="height:5px;background:linear-gradient(90deg,var(--teal),#005F6B);position:absolute;top:0;left:0;right:0;border-radius:20px 20px 0 0;"></div>
+        <div class="big-number" style="color:var(--teal)">74%</div>
+        <div class="stat-desc">Reject clinics with<br><strong>poor or no online presence</strong></div>
+      </div>
+      <div class="stat-card">
+        <div style="height:5px;background:linear-gradient(90deg,var(--teal),#005F6B);position:absolute;top:0;left:0;right:0;border-radius:20px 20px 0 0;"></div>
+        <div class="big-number" style="color:var(--teal)">78%</div>
+        <div class="stat-desc">Choose based on<br><strong>website + social media trust</strong></div>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <div class="chart-title">Patient Online Behaviour — CSN Healthcare Market 2026</div>
+      <div class="chart-subtitle">Source: BrightLocal Local Consumer Review Survey 2024 · Google/Ipsos Healthcare Search Study</div>
+      <canvas id="patientChart" height="90"></canvas>
+    </div>
+
+    <div class="highlight-box">
+      Right now, while we are sitting here — potential Spandan patients are opening Google, reading competitor reviews, and making a decision without ever calling your clinic.<br>
+      <strong>4 in 5 patients have already decided before they walk in. The question is: whose name are they finding?</strong>
+    </div>
+
+    <h3 style="font-weight:800;color:var(--dark);font-size:1.3rem;margin:40px 0 20px;">📱 The New Patient Journey — How Spandan Loses Patients Today</h3>
+    <div class="journey-flow">
+      <div class="journey-step-item">🩺 Patient notices high blood sugar / chest discomfort</div>
+      <div class="journey-arrow-down">↓</div>
+      <div class="journey-step-item">🔍 Opens Google: "cardiologist near me" / "diabetes doctor CSN"</div>
+      <div class="journey-arrow-down">↓</div>
+      <div class="journey-step-item">⭐ Sees 3–4 clinics with 1000–2400+ reviews, photos, and websites</div>
+      <div class="journey-arrow-down">↓</div>
+      <div class="journey-step-item">📅 Reads reviews, clicks "Book Appointment" — decision done in 60 seconds</div>
+      <div class="journey-arrow-down">↓</div>
+      <div class="journey-step-item danger">❌ Walks into a competitor's clinic — never even called Spandan</div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,#e8f4eb,#dff0f6);border-left:5px solid var(--green);border-radius:0 14px 14px 0;padding:22px 28px;margin:28px 0;display:flex;gap:16px;align-items:flex-start;">
+      <span style="font-size:1.6rem;flex-shrink:0;">✅</span>
+      <div>
+        <strong style="color:var(--green);font-size:1rem;">The Good News:</strong>
+        <p style="color:#444;font-size:0.95rem;line-height:1.7;margin-top:6px;">Patients ARE actively searching for exactly what Spandan offers — Cardiology AND Endocrinology together. You just need to be <strong>visible</strong> where they are already looking. The demand is there. The digital presence is the missing piece.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-white">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">⚔️ Competitive Threat</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--orange),#A06018)">02</div>
+      <div class="step-header-text">
+        <h2>Your Competitive Landscape in CSN</h2>
+        <p>Who is already dominating online search for Cardiology, Diabetes &amp; Thyroid in your city</p>
+      </div>
+    </div>
+
+    <div class="competitor-table-wrap">
+      <table class="competitor-table">
+        <thead>
+          <tr>
+            <th>#</th><th>Competitor</th><th>Digital Status (2026)</th><th>Patient Perception</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><strong>Pulse Heart Clinic</strong></td>
+            <td><span class="status-badge" style="background:#e8f5e9;color:#1B5E20;">Active Online</span> Cardiology</td>
+            <td>The "Modern" Heart Specialist</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong>Dr. Udgire Heart Care</strong></td>
+            <td><span class="status-badge" style="background:#e8f5e9;color:#1B5E20;">Active Online</span> Local heart clinic</td>
+            <td>The "Trusted" Local</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><strong>Ganpati Diabetes Centre</strong></td>
+            <td><span class="status-badge" style="background:#e8f5e9;color:#1B5E20;">Active Online</span> Diabetes focus · 4.8★</td>
+            <td>The "Safe" Diabetes Go-To</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><strong>Deogiri Diabetes Care Center</strong></td>
+            <td><span class="status-badge" style="background:#e8f5e9;color:#1B5E20;">Active Online</span> Diabetes clinic</td>
+            <td>The "Consistent" Diabetes Care</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><strong>Hormone Clinic</strong></td>
+            <td><span class="status-badge" style="background:#e8f5e9;color:#1B5E20;">Active Online</span> Diabetes–thyroid–hormone + active SM</td>
+            <td>The "Hormone &amp; Thyroid" Expert</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><strong>Care Ciigma Hospital</strong></td>
+            <td><span class="status-badge" style="background:#e8f5e9;color:#1B5E20;">Active Online</span> Multispeciality · cardiac &amp; endocrine</td>
+            <td>The "Big" Hospital Option</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><strong>Medicover Hospital</strong></td>
+            <td><span class="status-badge" style="background:#e8f5e9;color:#1B5E20;">Active Online</span> Corporate hospital · 4.6★</td>
+            <td>The "Corporate" Safe Choice</td>
+          </tr>
+          <tr class="spandan-row">
+            <td>⚠️</td>
+            <td><strong>🦋 SPANDAN CLINIC</strong></td>
+            <td><span class="status-badge" style="background:#fce4ec;color:#880E4F;">Inactive / Negative Review</span></td>
+            <td><strong style="color:var(--red);">Invisible Online — est. 40–60 new patients/month lost to competitors</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col">
+      <div class="chart-container" style="margin:0;">
+        <div class="chart-title">Online Visibility Score — CSN Market</div>
+        <div class="chart-subtitle">Grey = competitors. Red = Spandan. The gap is the opportunity.</div>
+        <canvas id="competitorChart" height="240"></canvas>
+      </div>
+      <div>
+        <div class="banner-strip-container" style="margin-top:10px;">
+          <div class="banner-strip">
+            <div class="banner-strip-num" style="background:var(--red);">01</div>
+            <div class="banner-strip-content">
+              <strong>7 strong competitors visible when patients search online</strong>
+              <span>All competing for the same cardiology, diabetes &amp; thyroid patients in CSN</span>
+            </div>
+          </div>
+          <div class="banner-strip">
+            <div class="banner-strip-num" style="background:var(--orange);">02</div>
+            <div class="banner-strip-content">
+              <strong>Spandan's expertise is invisible — competitors capture your patients</strong>
+              <span>An estimated 40–60 patients per month choose competitors over Spandan</span>
+            </div>
+          </div>
+          <div class="banner-strip">
+            <div class="banner-strip-num" style="background:var(--purple);">03</div>
+            <div class="banner-strip-content">
+              <strong>Competitors have 4★+ ratings &amp; hundreds of reviews</strong>
+              <span>Social proof is the #1 trust signal patients rely on in 2026</span>
+            </div>
+          </div>
+          <div class="banner-strip">
+            <div class="banner-strip-num" style="background:var(--pink);">04</div>
+            <div class="banner-strip-content">
+              <strong>Unmanaged negative review actively turning away patients</strong>
+              <span>One visible "Scam" keyword = hundreds of lost patients every month</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="dark-section">
+<div class="section-inner" style="max-width:1200px;margin:0 auto;padding:0 60px;">
+  <div class="section-pill" style="background:rgba(255,255,255,0.15);">⚠️ Warning Story</div>
+  <br><br>
+  <div class="step-header">
+    <div class="step-number-badge" style="background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.25);">03</div>
+    <div class="step-header-text">
+      <h2 style="color:white;">The MGM vs Medicover Story</h2>
+      <p style="color:rgba(255,255,255,0.75);">What happened in CIDCO, Chhatrapati Sambhaji Nagar — and why it is a direct warning for Spandan</p>
+    </div>
+  </div>
+
+  <div class="two-col" style="gap:40px;">
+    <div>
+      <div class="story-card">
+        <h3 style="color:var(--orange);margin-bottom:20px;font-size:1.3rem;font-weight:800;">📖 How It Happened</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>The MGM Era</h4>
+            <p>For many years in the CIDCO area of Chhatrapati Sambhaji Nagar, <strong>MGM Hospital</strong> was practically the only large private hospital in that locality. Almost every patient went to MGM by default.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Comfort &amp; Overconfidence</h4>
+            <p>This comfort continued for years. MGM believed patient loyalty was permanent. A digital presence felt unnecessary.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Medicover Enters</h4>
+            <p>Then <strong>Medicover Hospital</strong> opened in the same CIDCO area — with a modern website, active social media, and strong Google reviews.</p>
+          </div>
+          <div class="timeline-item">
+            <h4 style="color:var(--red);">The Shift</h4>
+            <p>Within 18 months, an estimated 30–40% of MGM's new patient walk-ins had shifted to Medicover — simply because online, <strong>Medicover looked more visible, more trusted, and more modern.</strong></p>
+          </div>
+          <div class="timeline-item">
+            <h4 style="color:var(--red);">The Lesson</h4>
+            <p><strong>MGM lost patients because its competitor became stronger digitally.</strong> Not because MGM's doctors got worse. Not because prices changed. <em>Those patients never came back.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px;justify-content:center;">
+      <div style="background:rgba(255,255,255,0.07);border-radius:20px;padding:30px;border:1px solid rgba(255,255,255,0.12);">
+        <div style="font-size:3rem;margin-bottom:16px;">🏥</div>
+        <h4 style="color:#4DD6E0;font-size:1rem;font-weight:700;margin-bottom:12px;">MGM Hospital</h4>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.7;">✗ No updated digital presence<br>✗ Relied on old-patient loyalty<br>✗ No response to reviews<br>✗ Invisible to new-generation patients</p>
+      </div>
+      <div style="text-align:center;font-size:2rem;">⬇️</div>
+      <div style="background:linear-gradient(135deg,var(--pink),var(--purple));border-radius:20px;padding:30px;">
+        <div style="font-size:3rem;margin-bottom:16px;">🏨</div>
+        <h4 style="font-size:1rem;font-weight:700;margin-bottom:12px;">Medicover Hospital</h4>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.9);line-height:1.7;">✓ Modern, active website<br>✓ Strong Google reviews (4.6★)<br>✓ Active social media presence<br>✓ Visible to every patient searching online</p>
+      </div>
+      <div style="background:rgba(192,57,43,0.2);border:1px solid rgba(192,57,43,0.45);border-radius:16px;padding:22px;text-align:center;">
+        <p style="color:#ff8a80;font-weight:700;font-size:1rem;line-height:1.6;">Spandan is currently in MGM's position.<br>The question is: Will you act before your Medicover appears?</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h3 style="color:#4DD6E0;font-size:1.1rem;font-weight:700;margin-bottom:20px;text-transform:uppercase;letter-spacing:1px;">🎯 The Bigger Market Reality</h3>
+    <div class="wakeup-stat-grid">
+      <div class="wakeup-stat">
+        <div class="wakeup-num">32%</div>
+        <div class="wakeup-label">Of all private healthcare check-ups in India now come from non-metro cities like CSN</div>
+      </div>
+      <div class="wakeup-stat">
+        <div class="wakeup-num">40%</div>
+        <div class="wakeup-label">More confirmed appointments for clinics that offer an online booking app</div>
+      </div>
+      <div class="wakeup-stat">
+        <div class="wakeup-num">369</div>
+        <div class="wakeup-label">Monthly online enquiries at Dande Hospital — patients going there instead of Spandan</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-white">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">💸 Cost of Inaction</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--red),#8B1A1A)">03B</div>
+      <div class="step-header-text">
+        <h2>The Real Monthly Cost of Doing Nothing</h2>
+        <p>Every month without a digital presence, this is the estimated revenue walking out of Spandan's door</p>
+      </div>
+    </div>
+
+    <table class="loss-table">
+      <thead>
+        <tr>
+          <th>What Spandan Is Losing Every Month</th>
+          <th style="text-align:center;">Patients / Month</th>
+          <th style="text-align:right;">Revenue Loss</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>New patients choosing competitors online</td>
+          <td style="text-align:center;font-weight:700;color:var(--red);">30–40</td>
+          <td style="text-align:right;font-weight:700;color:var(--red);">₹15,000–₹20,000</td>
+        </tr>
+        <tr>
+          <td>Follow-up patients not returning (no digital reminders)</td>
+          <td style="text-align:center;font-weight:700;color:var(--orange);">20–30</td>
+          <td style="text-align:right;font-weight:700;color:var(--orange);">₹10,000–₹15,000</td>
+        </tr>
+        <tr>
+          <td>Out-of-district patients who can't verify Spandan online</td>
+          <td style="text-align:center;font-weight:700;color:var(--purple);">10–15</td>
+          <td style="text-align:right;font-weight:700;color:var(--purple);">₹5,000–₹7,500</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td><strong>ESTIMATED MONTHLY LOSS TO COMPETITORS</strong></td>
+          <td style="text-align:center;color:var(--red);"><strong>60–85 patients</strong></td>
+          <td style="text-align:right;color:var(--red);"><strong>₹30,000–₹42,500</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="loss-highlight">
+      <div class="loss-big">₹3.6L – ₹5.1L</div>
+      <div class="loss-desc">Estimated Annual Revenue Loss to Competitors<br><small>Based on verified competitor enquiry numbers from Justdial &amp; Google, April 2026</small></div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,var(--dark),#1a3060);border-left:5px solid var(--orange);border-radius:0 16px 16px 0;padding:28px 36px;margin:24px 0;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,0.92);line-height:1.7;font-weight:500;">
+      "Spandan is currently spending <strong style="color:#4DD6E0;">₹0 on digital</strong> — and losing an estimated ₹3.6–5.1 lakhs per year to competitors who are spending wisely. <strong style="color:#4DD6E0;">What is the smarter decision?</strong>"
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-gradient">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">🔥 Reputation Crisis</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--red),#8B1A1A)">04</div>
+      <div class="step-header-text">
+        <h2>The Review Crisis Costing You Patients</h2>
+        <p>What a patient sees in the first 10 seconds — and the irreversible decision it triggers</p>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,#eef4ff,#e8f4fb);border-left:5px solid var(--teal);border-radius:0 14px 14px 0;padding:22px 28px;margin:0 0 28px;display:flex;gap:16px;align-items:flex-start;">
+      <span style="font-size:1.6rem;flex-shrink:0;">🧠</span>
+      <div>
+        <p style="font-style:italic;color:var(--dark);font-size:0.95rem;line-height:1.7;margin:0;">"One negative review carries <strong>5× the psychological weight</strong> of a positive one. In healthcare, patients are already anxious — a single bad review can make them walk straight to your competitor."</p>
+        <small style="color:#888;font-size:0.8rem;margin-top:6px;display:block;">— Dr. Roy Baumeister, Research Psychologist (Negativity Bias in Consumer Decision-Making)</small>
+      </div>
+    </div>
+
+    <table class="review-table">
+      <thead>
+        <tr>
+          <th>What a Patient Sees</th>
+          <th>Their Immediate Decision</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>💬 Negative review with zero response from clinic</td>
+          <td>❌ <em>"This clinic doesn't care about patients"</em></td>
+        </tr>
+        <tr>
+          <td>🔴 "Scam" keyword visible in a public review</td>
+          <td>❌ <em>Immediately goes to Medicover or Ganpati instead</em></td>
+        </tr>
+        <tr>
+          <td>📉 No positive reviews to balance the negative</td>
+          <td>❌ <em>Competitor wins by default — no comparison needed</em></td>
+        </tr>
+        <tr>
+          <td>⭐ Ganpati showing 4.8★ right next to Spandan's listing</td>
+          <td>❌ <em>Easy choice — Ganpati wins every single time</em></td>
+        </tr>
+      </tbody>
+    </table>
+
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:30px 0;align-items:start;">
+      
+      <img src="spandan-review-1.jpg" alt="Spandan Clinic Review 1" style="width:100%; height:auto; border-radius:16px; box-shadow:var(--card-shadow); border:1px solid #C8D0E8;">
+
+      <img src="spandan-review-2.jpg" alt="Spandan Clinic Review 2" style="width:100%; height:auto; border-radius:16px; box-shadow:var(--card-shadow); border:1px solid #C8D0E8;">
+
+      <img src="spandan-review-3.jpg" alt="Spandan Clinic Review 3" style="width:100%; height:auto; border-radius:16px; box-shadow:var(--card-shadow); border:1px solid #C8D0E8;">
+      
+    </div>
+  
+    <h3 style="font-weight:800;color:var(--dark);font-size:1.4rem;margin:40px 0 24px;">🛡️ The 4-Step Reputation Recovery Plan</h3>
+    <div class="rep-steps">
+      <div class="rep-step" style="border-top:4px solid var(--teal);">
+        <span class="rep-step-icon">📱</span>
+        <div class="rep-step-title">Step 1: Collect Reviews via WhatsApp</div>
+        <div class="rep-step-desc">200+ review requests collected in 90 days. Takes patients just 30 seconds. Zero effort from your staff.</div>
+      </div>
+      <div class="rep-step" style="border-top:4px solid var(--pink);">
+        <span class="rep-step-icon">💬</span>
+        <div class="rep-step-title">Step 2: Respond to Every Negative Review</div>
+        <div class="rep-step-desc">Every negative review gets an empathetic, professional response — turning critics into trust signals for future readers.</div>
+      </div>
+      <div class="rep-step" style="border-top:4px solid var(--green);">
+        <span class="rep-step-icon">⭐</span>
+        <div class="rep-step-title">Step 3: Push Positive Reviews</div>
+        <div class="rep-step-desc">Structured patient engagement builds a 4★+ profile that beats every competitor in CSN within 90 days.</div>
+      </div>
+      <div class="rep-step" style="border-top:4px solid var(--purple);">
+        <span class="rep-step-icon">🔗</span>
+        <div class="rep-step-title">Step 4: Fix Third-Party Listings</div>
+        <div class="rep-step-desc">CardiologistIndia.com listing optimised or removal requested — no more harmful third-party profiles damaging trust.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-white">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">💪 Your Advantages</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--green),#115533)">05</div>
+      <div class="step-header-text">
+        <h2>Spandan's Unfair Advantages — Already Yours</h2>
+        <p>Assets you already have that no competitor can replicate — they just need to be activated online</p>
+      </div>
+    </div>
+
+    <div class="four-col-grid">
+      <div class="four-col-card" style="background:linear-gradient(160deg,var(--pink),var(--purple));">
+        <div class="four-col-num">1</div>
+        <span class="four-col-icon">❤️‍🩺</span>
+        <div class="four-col-title">Cardiology + Endocrinology Together</div>
+        <div class="four-col-text">Rare combination — unique selling point across every digital platform. No other CSN clinic combines both under one roof.</div>
+      </div>
+      <div class="four-col-card" style="background:linear-gradient(160deg,var(--teal),#005060);">
+        <div class="four-col-num">2</div>
+        <span class="four-col-icon">🔬</span>
+        <div class="four-col-title">In-House Diagnostics</div>
+        <div class="four-col-text">ECG, Echo, Holter, Lab — "Complete care under one roof" messaging. High-converting for patients searching for convenience.</div>
+      </div>
+      <div class="four-col-card" style="background:linear-gradient(160deg,var(--orange),#8A5010);">
+        <div class="four-col-num">3</div>
+        <span class="four-col-icon">👥</span>
+        <div class="four-col-title">Established OPD + Regular Patients</div>
+        <div class="four-col-text">200+ review requests = 200+ reviews fast. Your loyal patient base is an untapped gold mine for online reputation.</div>
+      </div>
+      <div class="four-col-card" style="background:linear-gradient(160deg,#1a3060,var(--dark));">
+        <div class="four-col-num">4</div>
+        <span class="four-col-icon">🗺️</span>
+        <div class="four-col-title">Multi-District Reach</div>
+        <div class="four-col-text">Patients from Jalna, Beed, Latur verify Spandan online before traveling. Word-of-mouth ready to be converted into digital proof.</div>
+      </div>
+    </div>
+
+    <div class="moat-box">
+      <h4>Your Competitive Moat — Irreplicable for 2+ Years</h4>
+      <p>No clinic in Chhatrapati Sambhaji Nagar currently offers Cardiology + Endocrinology + In-House Diagnostics under one roof, combined with a branded patient app and a 4★+ reputation. This is a combination competitors cannot replicate in under two years. <strong style="color:#4DD6E0;">The window to own this position is now.</strong></p>
+    </div>
+
+    <div class="banner-strip-container" style="margin-top:40px;">
+      <div class="banner-strip">
+        <div class="banner-strip-num" style="background:var(--green);">✓</div>
+        <div class="banner-strip-content">
+          <strong>Specialists' qualifications become 24/7 credibility builders online</strong>
+          <span>Every doctor's qualification displayed online builds trust even while the clinic is closed</span>
+        </div>
+        <div class="banner-strip-icon">🎓</div>
+      </div>
+      <div class="banner-strip">
+        <div class="banner-strip-num" style="background:var(--teal);">✓</div>
+        <div class="banner-strip-content">
+          <strong>Out-of-district patients find and verify Spandan before traveling</strong>
+          <span>Jalna, Beed &amp; Latur patients don't travel without checking online first</span>
+        </div>
+        <div class="banner-strip-icon">🗺️</div>
+      </div>
+      <div class="banner-strip">
+        <div class="banner-strip-num" style="background:var(--pink);">✓</div>
+        <div class="banner-strip-content">
+          <strong>Every "cardiologist CSN" or "diabetes doctor" search leads to Spandan</strong>
+          <span>SEO targeting the exact keywords your patients type into Google every day</span>
+        </div>
+        <div class="banner-strip-icon">🔍</div>
+      </div>
+      <div class="banner-strip">
+        <div class="banner-strip-num" style="background:var(--purple);">✓</div>
+        <div class="banner-strip-content">
+          <strong>Becomes the go-to for both heart AND hormonal care in CSN</strong>
+          <span>Own two major specialties digitally — no competitor currently holds this combined position</span>
+        </div>
+        <div class="banner-strip-icon">👑</div>
+      </div>
+      <div class="banner-strip">
+        <div class="banner-strip-num" style="background:var(--orange);">✓</div>
+        <div class="banner-strip-content">
+          <strong>Strong word-of-mouth reputation — converted into online proof</strong>
+          <span>Existing patient trust becomes verified Google reviews — the highest-quality social proof possible</span>
+        </div>
+        <div class="banner-strip-icon">💬</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-light">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">🔗 Unified System</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--teal),#005060)">06</div>
+      <div class="step-header-text">
+        <h2>One Partner. One System. Every Patient Stage.</h2>
+        <p>Why one unified partner is smarter — and safer — than 3 separate vendors</p>
+      </div>
+    </div>
+
+    <div class="vs-grid">
+      <div class="vs-card">
+        <div class="vs-header" style="background:linear-gradient(135deg,#6B0000,var(--red));">❌ Old Way — Multiple Vendors</div>
+        <div class="vs-item" style="background:#fff8f8;">🧾 3 separate invoices &amp; 3 different contacts to manage</div>
+        <div class="vs-item">🎨 App and website look completely different — broken brand</div>
+        <div class="vs-item" style="background:#fff8f8;">⏳ Setup takes 6–9 months with coordination delays</div>
+        <div class="vs-item">🤝 Accountability gaps between vendors — no single point of ownership</div>
+        <div class="vs-item" style="background:#fff8f8;">📊 No unified data or reporting — decisions made blind</div>
+      </div>
+
+      <div class="vs-badge">VS</div>
+
+      <div class="vs-card">
+        <div class="vs-header" style="background:linear-gradient(135deg,var(--green),#0E4A2A);">✅ Unified System — One Partner</div>
+        <div class="vs-item" style="background:#f0faf4;">🧾 One invoice, one call — simple, stress-free management</div>
+        <div class="vs-item">🎨 Unified brand across app, website &amp; social — professional look</div>
+        <div class="vs-item" style="background:#f0faf4;">🚀 Live in just 45–60 days — faster than any multi-vendor setup</div>
+        <div class="vs-item">🤝 Single point of accountability — one team, fully responsible</div>
+        <div class="vs-item" style="background:#f0faf4;">📊 Single dashboard with all metrics — complete transparency</div>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <div class="chart-title">Setup Time Comparison — Multiple Vendors vs One Partner</div>
+      <div class="chart-subtitle">One unified partner is 5× faster to go live than managing multiple vendors</div>
+      <canvas id="setupChart" height="100"></canvas>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-white">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">📱 Patient App</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--purple),var(--pink))">07</div>
+      <div class="step-header-text">
+        <h2>Your Own Branded Patient App</h2>
+        <p>7 Revenue-Generating Features — each one working for Spandan 24 hours a day</p>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card" style="border-top-color:var(--pink);">
+        <div class="feature-icon-wrap" style="background:#fce8f3;">📅</div>
+        <div class="feature-title">Smart Booking</div>
+        <div class="feature-pills">
+          <div class="pill"><span class="pill-label">Patient:</span> Book anytime, confirmation sent — no phone calls needed</div>
+          <div class="pill"><span class="pill-label">Spandan:</span> 80% of bookings handled automatically — staff freed for patient care</div>
+        </div>
+      </div>
+
+      <div class="feature-card" style="border-top-color:var(--teal);">
+        <div class="feature-icon-wrap" style="background:#e0f4f7;">📋</div>
+        <div class="feature-title">Digital Records</div>
+        <div class="feature-pills">
+          <div class="pill"><span class="pill-label">Patient:</span> Access prescriptions, ECG, lab reports from phone, anytime</div>
+          <div class="pill"><span class="pill-label">Spandan:</span> Patients return for continuity of care — higher retention rate</div>
+        </div>
+      </div>
+
+      <div class="feature-card" style="border-top-color:var(--purple);">
+        <div class="feature-icon-wrap" style="background:#ede0f8;">📹</div>
+        <div class="feature-title">Teleconsultation</div>
+        <div class="feature-pills">
+          <div class="pill"><span class="pill-label">Patient:</span> Video consult for prescription renewals — no travel needed</div>
+          <div class="pill"><span class="pill-label">Spandan:</span> New revenue stream: <strong>₹600 per session</strong></div>
+        </div>
+      </div>
+
+      <div class="feature-card" style="border-top-color:var(--orange);">
+        <div class="feature-icon-wrap" style="background:#fdf0e0;">⏰</div>
+        <div class="feature-title">Auto Reminders</div>
+        <div class="feature-pills">
+          <div class="pill"><span class="pill-label">Patient:</span> HbA1c due, BP check, follow-up alerts — never miss care</div>
+          <div class="pill"><span class="pill-label">Spandan:</span> <strong>40% more follow-up rate</strong> — recurring revenue (based on comparable clinic app data)</div>
+        </div>
+      </div>
+
+      <div class="feature-card" style="border-top-color:var(--green);">
+        <div class="feature-icon-wrap" style="background:#e5f5ec;">💊</div>
+        <div class="feature-title">Medication Alerts</div>
+        <div class="feature-pills">
+          <div class="pill"><span class="pill-label">Patient:</span> Daily push notifications for medications — better adherence</div>
+          <div class="pill"><span class="pill-label">Spandan:</span> Better outcomes → more referrals → organic patient growth</div>
+        </div>
+      </div>
+
+      <div class="feature-card" style="border-top-color:var(--dark);">
+        <div class="feature-icon-wrap" style="background:#e8ecf5;">📊</div>
+        <div class="feature-title">Admin Dashboard</div>
+        <div class="feature-pills">
+          <div class="pill"><span class="pill-label">Spandan:</span> Track patients, revenue &amp; OPD trends daily — full visibility into clinic performance</div>
+        </div>
+      </div>
+
+      <div class="feature-card" style="border-top-color:var(--orange);">
+        <div class="feature-icon-wrap" style="background:#fdf5e0;">⚡</div>
+        <div class="feature-title">Staff Efficiency</div>
+        <div class="feature-pills">
+          <div class="pill"><span class="pill-label">Patient:</span> Instant booking confirmation — no waiting on hold</div>
+          <div class="pill"><span class="pill-label">Spandan:</span> Reception staff focus on patient care — not manual phone management</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,#e8f4eb,#dff0f6);border-left:5px solid var(--green);border-radius:0 16px 16px 0;padding:24px 28px;margin:30px 0;display:flex;gap:16px;align-items:flex-start;">
+      <span style="font-size:1.6rem;flex-shrink:0;">💡</span>
+      <div>
+        <strong style="color:var(--green);font-size:1rem;">Staff Efficiency — The Hidden ROI:</strong>
+        <p style="color:#444;font-size:0.93rem;line-height:1.7;margin-top:6px;">Right now, Spandan's front desk handles <strong>30–50+ phone calls daily</strong> just for bookings. With the app, 80% of bookings happen automatically. Estimated <strong>2–3 hours of staff time saved daily</strong> — meaning more patients can be seen per day, and more revenue is generated from the same team size.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-gradient">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">💼 Investment Packages</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--teal),#005060)">7B</div>
+      <div class="step-header-text">
+        <h2>Custom Packages — Built Around Spandan's Priorities</h2>
+        <p>Three options to fit your timeline, budget, and goals — from essentials to full transformation</p>
+      </div>
+    </div>
+
+    <div class="pkg-grid-3">
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div class="pkg-name">🌱 Option A — Essentials</div>
+          <div class="pkg-price">₹35,000 <span>setup</span></div>
+          <div class="pkg-monthly">+ ₹6,000/month</div>
+        </div>
+        <ul class="pkg-features-list">
+          <li>Professional clinic website (5 pages, SEO-ready)</li>
+          <li>SEO targeting "cardiologist CSN," "diabetes doctor Aurangabad"</li>
+          <li>Google Business Profile full optimisation</li>
+          <li>200+ Review Recovery Campaign (90 days)</li>
+          <li>Negative review response management</li>
+          <li>Social media activation (Facebook + Instagram)</li>
+          <li>Monthly content (4 posts/month)</li>
+        </ul>
+      </div>
+
+      <div class="pkg-card recommended">
+        <div class="pkg-badge-top">⭐ RECOMMENDED FOR SPANDAN</div>
+        <div class="pkg-header">
+          <div class="pkg-name">🚀 Option B — Growth</div>
+          <div class="pkg-price">₹75,000 <span>setup</span></div>
+          <div class="pkg-monthly">+ ₹10,000/month</div>
+        </div>
+        <ul class="pkg-features-list">
+          <li>Everything in Essentials PLUS:</li>
+          <li>Universal Hospital App (Spandan-branded)</li>
+          <li>Smart online booking — frees staff from manual calls</li>
+          <li>Teleconsultation system (₹600/session)</li>
+          <li>App revenue share: 15% (₹6k–₹32k+/month)</li>
+          <li>Google Ads management (₹5,000 budget included)</li>
+          <li>Weekly social content (16 posts/month)</li>
+          <li>Dedicated account manager</li>
+          <li class="bonus">6-month app maintenance FREE</li>
+          <li class="bonus">Monthly performance reports FREE</li>
+        </ul>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div class="pkg-name">⚙️ Option C — Custom</div>
+          <div class="pkg-price" style="font-size:1.6rem;">Built Around You</div>
+          <div class="pkg-monthly">Budget-flexible</div>
+        </div>
+        <ul class="pkg-features-list">
+          <li>Tell us your top 3 priorities</li>
+          <li>Tell us your comfortable budget</li>
+          <li>We build a plan around those needs</li>
+          <li>Start with just reputation management</li>
+          <li>Add layers over time as you grow</li>
+          <li>Nothing more, nothing less</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-light">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">🎯 Your Decision</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--orange),#8A5010)">08</div>
+      <div class="step-header-text">
+        <h2>Three Paths Forward — Your Choice</h2>
+        <p>Built around Spandan's priorities. Each path has a different outcome.</p>
+      </div>
+    </div>
+
+    <div class="three-choice-grid">
+      <div class="choice-card">
+        <div class="choice-header" style="background:linear-gradient(135deg,#4A4A4A,#2A2A2A);">
+          <div style="font-size:2.5rem;margin-bottom:8px;">😶</div>
+          THE COST OF DOING NOTHING
+        </div>
+        <div class="choice-body">
+          <div style="background:#fdf0f0;border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:0.85rem;color:var(--red);font-weight:600;">Estimated revenue missed: ₹2.45L–₹5.15L per year</div>
+          <div class="choice-item"><span class="choice-icon">❌</span> Competitors continue to grow stronger online</div>
+          <div class="choice-item"><span class="choice-icon">❌</span> Negative review keeps damaging reputation</div>
+          <div class="choice-item"><span class="choice-icon">❌</span> New patients choose Ganpati or Medicover</div>
+          <div class="choice-item"><span class="choice-icon">❌</span> Out-of-district patients cannot find you</div>
+          <div class="choice-item"><span class="choice-icon">❌</span> Revenue stagnates or declines over time</div>
+        </div>
+      </div>
+
+      <div class="choice-card">
+        <div class="choice-header" style="background:linear-gradient(135deg,var(--orange),#8A5010);">
+          <div style="font-size:2.5rem;margin-bottom:8px;">🤔</div>
+          HANDLE INTERNALLY
+        </div>
+        <div class="choice-body">
+          <div class="choice-item"><span class="choice-icon">⚠️</span> Learning curve takes 6–12 months minimum</div>
+          <div class="choice-item"><span class="choice-icon">⚠️</span> Staff time diverted from patient care</div>
+          <div class="choice-item"><span class="choice-icon">⚠️</span> No technical expertise for app &amp; SEO</div>
+          <div class="choice-item"><span class="choice-icon">⚠️</span> Competitors keep growing in that time</div>
+          <div class="choice-item"><span class="choice-icon">⚠️</span> Half-results with full effort = frustrating</div>
+        </div>
+      </div>
+
+      <div class="choice-card">
+        <div class="choice-header" style="background:linear-gradient(135deg,var(--pink),var(--purple));">
+          <div style="font-size:2.5rem;margin-bottom:8px;">🚀</div>
+          PARTNER WITH US
+        </div>
+        <div class="choice-body">
+          <div style="background:#f0faf4;border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:0.85rem;color:var(--green);font-weight:600;">Investment recovered by Month 4–8</div>
+          <div class="choice-item"><span class="choice-icon">✅</span> Live in 45–60 days — no delays</div>
+          <div class="choice-item"><span class="choice-icon">✅</span> Reputation recovery begins in Week 1</div>
+          <div class="choice-item"><span class="choice-icon">✅</span> Full digital transformation — website, app, SEO, social</div>
+          <div class="choice-item"><span class="choice-icon">✅</span> Revenue-generating app with measurable growth</div>
+          <div class="choice-item"><span class="choice-icon">✅</span> Single point of accountability — one team responsible for everything</div>
+          <div class="choice-item"><span class="choice-icon">✅</span> Staff training included — no IT department needed</div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</div>
+
+
+<div class="dark-section">
+<div class="section-inner" style="max-width:1200px;margin:0 auto;padding:0 60px;">
+  <div class="section-pill" style="background:rgba(255,255,255,0.15);">✅ Proven Results</div>
+  <br><br>
+  <div class="step-header">
+    <div class="step-number-badge" style="background:rgba(255,255,255,0.12);border:2px solid rgba(255,255,255,0.25);">09</div>
+    <div class="step-header-text">
+      <h2 style="color:white;">Live Proof — Already Delivered</h2>
+      <p style="color:rgba(255,255,255,0.75);">Not promises. Actual delivered results you can see on a screen right now.</p>
+    </div>
+  </div>
+
+  <div class="proof-grid">
+    <div class="proof-card">
+      <div class="proof-card-icon">🌐</div>
+      <div class="proof-card-title">Website — Live Today</div>
+      <div class="proof-card-text">Dr. Tushar Idhate's website — fully live, modern, SEO-optimised, mobile-first. Open it in your browser right now.</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-card-icon">📱</div>
+      <div class="proof-card-title">App Interface — Live Demo</div>
+      <div class="proof-card-text">Full app interface ready for live demonstration. Currently active with 50+ users. See exactly what Spandan's branded patient app will look and feel like.</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-card-icon">📈</div>
+      <div class="proof-card-title">Patient Inquiry Growth</div>
+      <div class="proof-card-text">Comparable tier-2 city clinic: patient enquiries increased <strong>40% post-launch</strong>. 340+ new patient inquiries generated in first 90 days. Trackable, not estimated.</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-card-icon">🔍</div>
+      <div class="proof-card-title">SEO &amp; Lead Generation</div>
+      <div class="proof-card-text">First-page Google rankings for target speciality keywords within 60 days of launch — consistent, trackable results.</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-card-icon">📣</div>
+      <div class="proof-card-title">Reputation Recovery</div>
+      <div class="proof-card-text">Clinic profile recovered from negative reviews to 4.2★+ within 90 days using structured WhatsApp review campaigns.</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-card-icon">📲</div>
+      <div class="proof-card-title">Social Media Growth</div>
+      <div class="proof-card-text">Social media engagement growing <strong>25% month-over-month</strong> for active clients — consistent organic reach with zero paid promotion.</div>
+    </div>
+  </div>
+
+
+  <!-- ===== PAST WORK HIGHLIGHT SECTION ===== -->
+  <div style="margin:40px 0;">
+    <div style="text-align:center;margin-bottom:30px;">
+      <div style="display:inline-block;background:linear-gradient(135deg,rgba(181,24,122,0.25),rgba(0,123,138,0.25));border:2px solid rgba(181,24,122,0.5);border-radius:50px;padding:10px 28px;margin-bottom:18px;">
+        <span style="color:#E06CB0;font-weight:700;font-size:0.9rem;letter-spacing:3px;text-transform:uppercase;">✅ Already Delivered — Live Clients</span>
+      </div>
+      <h3 style="color:white;font-family:'Montserrat',sans-serif;font-size:1.7rem;font-weight:800;margin-bottom:10px;">Other Projects I Have Built &amp; Delivered</h3>
+      <p style="color:rgba(255,255,255,0.7);font-size:1rem;">These are real, live projects for real healthcare clients — not mock-ups, not demos.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+
+      <!-- Card 1: Shree Laxminarayan Hospital Website -->
+      <div style="background:linear-gradient(135deg,rgba(0,123,138,0.18),rgba(0,123,138,0.06));border:2px solid rgba(0,200,200,0.35);border-radius:20px;padding:32px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(0,123,138,0.25),transparent 70%);border-radius:50%;"></div>
+        <div style="font-size:2.5rem;margin-bottom:14px;">🏥</div>
+        <div style="display:inline-block;background:rgba(0,200,200,0.15);border:1px solid rgba(0,200,200,0.4);border-radius:20px;padding:4px 14px;margin-bottom:14px;">
+          <span style="color:#4DD6E0;font-size:0.78rem;font-weight:700;letter-spacing:2px;">WEBSITE — LIVE</span>
+        </div>
+        <h4 style="color:white;font-size:1.2rem;font-weight:700;margin-bottom:10px;">Shree Laxminarayan Hospital</h4>
+        <p style="color:rgba(255,255,255,0.75);font-size:0.92rem;line-height:1.7;margin-bottom:18px;">
+          Full hospital website built and delivered — contact management, clinic hours, location map, and patient-facing information. Live and actively used by the hospital in Nashik, Maharashtra.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
+          <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 12px;color:rgba(255,255,255,0.7);font-size:0.78rem;">Hospital Website</span>
+          <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 12px;color:rgba(255,255,255,0.7);font-size:0.78rem;">Nashik</span>
+          <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 12px;color:rgba(255,255,255,0.7);font-size:0.78rem;">Live &amp; Active</span>
+        </div>
+        <a href="https://www.shreelaxminarayanhospital.com/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#007B8A,#009BAA);color:white;text-decoration:none;padding:12px 24px;border-radius:10px;font-weight:700;font-size:0.9rem;transition:all 0.3s;">
+          🔗 View Live Website
+        </a>
+      </div>
+
+      <!-- Card 2: Nashik Paralysis Center App -->
+      <div style="background:linear-gradient(135deg,rgba(181,24,122,0.18),rgba(181,24,122,0.06));border:2px solid rgba(181,24,122,0.45);border-radius:20px;padding:32px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(181,24,122,0.25),transparent 70%);border-radius:50%;"></div>
+        <div style="font-size:2.5rem;margin-bottom:14px;">📱</div>
+        <div style="display:inline-block;background:rgba(181,24,122,0.15);border:1px solid rgba(181,24,122,0.5);border-radius:20px;padding:4px 14px;margin-bottom:14px;">
+          <span style="color:#E06CB0;font-size:0.78rem;font-weight:700;letter-spacing:2px;">ANDROID APP — LIVE ON PLAY STORE</span>
+        </div>
+        <h4 style="color:white;font-size:1.2rem;font-weight:700;margin-bottom:10px;">Nashik Paralysis Center App</h4>
+        <p style="color:rgba(255,255,255,0.75);font-size:0.92rem;line-height:1.7;margin-bottom:18px;">
+          A fully functional patient app — live on Google Play Store, actively downloaded and used by real patients. Features include appointment booking, medical record access, live queue status, and direct doctor messaging.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
+          <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 12px;color:rgba(255,255,255,0.7);font-size:0.78rem;">Android App</span>
+          <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 12px;color:rgba(255,255,255,0.7);font-size:0.78rem;">Google Play Store</span>
+          <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 12px;color:rgba(255,255,255,0.7);font-size:0.78rem;">10+ Downloads</span>
+          <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 12px;color:rgba(255,255,255,0.7);font-size:0.78rem;">Live Queue Feature</span>
+        </div>
+        <a href="https://play.google.com/store/apps/details?id=com.docterz.connect.nashikparalysiscenter&hl=en_IN" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#B5187A,#8A1060);color:white;text-decoration:none;padding:12px 24px;border-radius:10px;font-weight:700;font-size:0.9rem;transition:all 0.3s;">
+          ▶ View on Play Store
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom proof banner -->
+    <div style="margin-top:24px;background:linear-gradient(135deg,rgba(27,122,75,0.2),rgba(27,122,75,0.08));border:2px solid rgba(27,122,75,0.4);border-radius:16px;padding:22px 30px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <div style="font-size:2rem;">✅</div>
+      <div style="flex:1;min-width:200px;">
+        <p style="color:#6EDBA8;font-weight:700;font-size:1rem;margin-bottom:4px;">Both projects are live right now — open on your phone or laptop in 30 seconds.</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;">This is what Spandan's website and app will look like — built by the same developer, with the same quality, customised fully for Spandan.</p>
+      </div>
+    </div>
+  </div>
+  <!-- ===== END PAST WORK SECTION ===== -->
+
+  <!-- ===== DR. TUSHAR CLICKABLE LIVE DEMOS ===== -->
+  <div style="margin:30px 0;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="display:inline-block;background:rgba(77,214,224,0.12);border:1px solid rgba(77,214,224,0.35);border-radius:50px;padding:8px 24px;margin-bottom:10px;">
+        <span style="color:#4DD6E0;font-weight:700;font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;">🎬 Open Right Now — Click to Launch</span>
+      </div>
+      <h3 style="color:white;font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:800;">Dr. Tushar Idhate — Live App &amp; Website</h3>
+      <p style="color:rgba(255,255,255,0.65);font-size:0.9rem;margin-top:6px;">You see the actual product before investing a single rupee. Zero risk.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+
+      <!-- App card -->
+      <a href="tushar-app/index.html" target="_blank" style="text-decoration:none;display:block;">
+        <div style="background:linear-gradient(135deg,rgba(0,123,138,0.22),rgba(0,95,107,0.12));border:2px solid rgba(0,200,200,0.4);border-radius:20px;padding:28px;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(77,214,224,0.8)';this.style.boxShadow='0 20px 50px rgba(0,123,138,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(0,200,200,0.4)';this.style.boxShadow='none'">
+          <div style="position:absolute;top:-30px;right:-30px;width:100px;height:100px;background:radial-gradient(circle,rgba(0,123,138,0.3),transparent 70%);border-radius:50%;"></div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+            <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--teal),#005F6B);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;">📱</div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:900;color:white;font-size:1rem;">Patient App</div>
+              <div style="font-size:0.78rem;color:#4DD6E0;margin-top:2px;">Dr. Tushar Idhate Clinic</div>
+            </div>
+            <div style="margin-left:auto;background:rgba(77,214,224,0.15);border:1px solid rgba(77,214,224,0.4);border-radius:20px;padding:5px 14px;font-size:0.78rem;font-weight:700;color:#4DD6E0;white-space:nowrap;">▶ Open</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:8px;"><span style="color:#4DD6E0;">✓</span> Appointment booking · Health records</div>
+            <div style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:8px;"><span style="color:#4DD6E0;">✓</span> Teleconsult · Subscriptions · Reminders</div>
+          </div>
+          <div style="margin-top:16px;font-size:0.78rem;color:rgba(77,214,224,0.8);font-weight:600;">🔗 Click to open in browser →</div>
+        </div>
+      </a>
+
+      <!-- Website card -->
+      <a href="tushar-website/index.html" target="_blank" style="text-decoration:none;display:block;">
+        <div style="background:linear-gradient(135deg,rgba(181,24,122,0.22),rgba(94,31,138,0.12));border:2px solid rgba(181,24,122,0.4);border-radius:20px;padding:28px;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(232,100,176,0.8)';this.style.boxShadow='0 20px 50px rgba(181,24,122,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(181,24,122,0.4)';this.style.boxShadow='none'">
+          <div style="position:absolute;top:-30px;right:-30px;width:100px;height:100px;background:radial-gradient(circle,rgba(181,24,122,0.3),transparent 70%);border-radius:50%;"></div>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+            <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--pink),var(--purple));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;">🌐</div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:900;color:white;font-size:1rem;">Clinic Website</div>
+              <div style="font-size:0.78rem;color:#E06CB0;margin-top:2px;">Dr. Tushar Idhate Clinic</div>
+            </div>
+            <div style="margin-left:auto;background:rgba(181,24,122,0.2);border:1px solid rgba(232,100,176,0.4);border-radius:20px;padding:5px 14px;font-size:0.78rem;font-weight:700;color:#E06CB0;white-space:nowrap;">▶ Open</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:8px;"><span style="color:#E06CB0;">✓</span> SEO-optimised · Mobile-first · Fast</div>
+            <div style="font-size:0.84rem;color:rgba(255,255,255,0.75);display:flex;gap:8px;"><span style="color:#E06CB0;">✓</span> Doctor profiles · Booking · Reviews</div>
+          </div>
+          <div style="margin-top:16px;font-size:0.78rem;color:rgba(232,100,176,0.8);font-weight:600;">🔗 Click to open in browser →</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+  <!-- ===== END DR. TUSHAR DEMOS ===== -->
+
+  <div style="background:linear-gradient(135deg,var(--pink),var(--purple));border-radius:16px;padding:28px 36px;text-align:center;margin:24px 0;">
+    <p style="font-size:1.2rem;font-style:italic;color:white;font-weight:700;line-height:1.7;">"Spandan is not my experiment. Spandan is my <strong style="color:#4DD6E0;">next success story.</strong>"</p>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-white">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">💰 ROI &amp; Investment</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--green),#0E4A2A)">10</div>
+      <div class="step-header-text">
+        <h2>Live Investment &amp; ROI Calculator</h2>
+        <p>Adjust any number — watch every result, chart and payback date update instantly</p>
+      </div>
+    </div>
+
+    <style>
+      #roi-calc { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+      @media(max-width:900px){ #roi-calc { grid-template-columns:1fr; } }
+      .calc-section-label { font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;margin-top:4px; }
+      .slider-row { display:flex;align-items:center;gap:10px;margin-bottom:14px; }
+      .slider-row input[type=range] { flex:1;height:6px;cursor:pointer;border-radius:3px; }
+      .num-box { display:flex;align-items:center;background:white;border:1.5px solid #c8d0e8;border-radius:10px;padding:4px 8px;min-width:110px; }
+      .num-box span { font-size:0.78rem;color:#999;margin-right:2px; }
+      .num-box input[type=number] { width:84px;border:none;outline:none;font-size:0.88rem;font-weight:700;color:var(--dark);font-family:'Poppins',sans-serif; }
+      .kpi-card { border-radius:18px;padding:18px 20px;color:white;text-align:center; }
+      .kpi-label { font-size:0.68rem;font-weight:600;opacity:0.7;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:5px; }
+      .kpi-value { font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:900;line-height:1; }
+      .kpi-sub { font-size:0.68rem;opacity:0.65;margin-top:4px; }
+      .rev-bar { height:8px;border-radius:4px;transition:width 0.4s ease;min-width:4px;max-width:120px; }
+    </style>
+
+    <div id="roi-calc">
+
+      <div style="background:#F4F6FB;border-radius:24px;padding:28px;border:1px solid #dde2f0;">
+
+        <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:var(--dark);margin-bottom:22px;display:flex;align-items:center;gap:10px;">
+          <span style="font-size:1.3rem;">⚙️</span> Adjust Your Numbers
+        </div>
+
+        <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px dashed #ccd3e8;">
+          <div class="calc-section-label" style="color:var(--teal);">💼 Investment <span style="font-size:0.65rem;font-weight:500;color:#999;text-transform:none;letter-spacing:0;">(fixed as per proposal above)</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div style="background:white;border:1.5px solid #c8d0e8;border-radius:12px;padding:10px 14px;text-align:center;">
+              <div style="font-size:0.68rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Setup Fee (One-Time)</div>
+              <div style="font-size:1.1rem;font-weight:900;color:var(--teal);">₹75,000</div>
+            </div>
+            <div style="background:white;border:1.5px solid #c8d0e8;border-radius:12px;padding:10px 14px;text-align:center;">
+              <div style="font-size:0.68rem;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Monthly Retainer</div>
+              <div style="font-size:1.1rem;font-weight:900;color:var(--teal);">₹10,000 <span style="font-size:0.7rem;color:#aaa;font-weight:500;">/mo</span></div>
+            </div>
+          </div>
+          <div style="margin-top:8px;background:#edf5fb;border-radius:10px;padding:8px 14px;font-size:0.78rem;color:#444;display:flex;justify-content:space-between;align-items:center;">
+            <span>📊 Year 1 Total Investment</span>
+            <span style="font-weight:900;color:var(--dark);" id="out-invest-display">₹1,95,000</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px dashed #ccd3e8;">
+          <div class="calc-section-label" style="color:var(--pink);">🧑‍⚕️ New Patients</div>
+
+          <label style="display:block;font-size:0.82rem;font-weight:600;color:#444;margin-bottom:5px;">New Patients per Month</label>
+          <div class="slider-row">
+            <input type="range" id="sl-patients" min="5" max="200" step="5" value="30" style="accent-color:var(--pink);" oninput="syncNum('patients',this.value)">
+            <div class="num-box"><input type="number" id="in-patients" value="30" min="0" oninput="syncSlider('patients',this.value)"></div>
+          </div>
+
+         <label style="display:block;font-size:0.82rem;font-weight:600;color:#444;margin-bottom:5px;">Avg. Revenue per Patient Visit <span style="font-size:0.65rem;font-weight:500;color:#999;">(Fixed)</span></label>
+          <div style="display:flex;align-items:center;background:#e8ecf5;border:1px solid #c8d0e8;border-radius:10px;padding:8px 14px;margin-bottom:14px;width:fit-content;">
+            <span style="font-size:1rem;font-weight:800;color:var(--dark);">₹500</span>
+          </div>
+          <input type="hidden" id="in-avgval" value="500">
+        </div>
+
+        <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px dashed #ccd3e8;">
+          <div class="calc-section-label" style="color:var(--purple);">📱 App Subscriptions</div>
+
+          <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.82rem;font-weight:600;color:#444;">Starter (₹199/mo)</span>
+                <div style="display:flex; gap:8px;">
+                    <div class="num-box" style="min-width:80px;padding:4px 6px;"><span>Mo:</span><input type="number" id="in-start-mo" value="50" min="0" oninput="calc()" style="width:45px;"></div>
+                    <div class="num-box" style="min-width:80px;padding:4px 6px;"><span>Yr:</span><input type="number" id="in-start-yr" value="100" min="0" oninput="calc()" style="width:45px;"></div>
+                </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.82rem;font-weight:600;color:#444;">Growth (₹599/mo)</span>
+                <div style="display:flex; gap:8px;">
+                    <div class="num-box" style="min-width:80px;padding:4px 6px;"><span>Mo:</span><input type="number" id="in-grow-mo" value="20" min="0" oninput="calc()" style="width:45px;"></div>
+                    <div class="num-box" style="min-width:80px;padding:4px 6px;"><span>Yr:</span><input type="number" id="in-grow-yr" value="0" min="0" oninput="calc()" style="width:45px;"></div>
+                </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.82rem;font-weight:600;color:#444;">Elite (₹1,299/mo)</span>
+                <div style="display:flex; gap:8px;">
+                    <div class="num-box" style="min-width:80px;padding:4px 6px;"><span>Mo:</span><input type="number" id="in-elite-mo" value="10" min="0" oninput="calc()" style="width:45px;"></div>
+                    <div class="num-box" style="min-width:80px;padding:4px 6px;"><span>Yr:</span><input type="number" id="in-elite-yr" value="0" min="0" oninput="calc()" style="width:45px;"></div>
+                </div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:10px;background:white;border:1.5px solid #c8d0e8;border-radius:12px;padding:10px 14px;">
+            <div style="background:linear-gradient(135deg,var(--purple),#7B0080);color:white;font-size:0.85rem;font-weight:900;border-radius:8px;padding:4px 12px;">15%</div>
+            <div>
+              <div style="font-size:0.8rem;font-weight:700;color:var(--dark);">Clinic Revenue Share — Fixed</div>
+              <div style="font-size:0.72rem;color:#888;">₹ earned = (Subscribers × Plan Price) × 15% × 12 months</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="calc-section-label" style="color:var(--orange);">📞 Teleconsults</div>
+
+          <label style="display:block;font-size:0.82rem;font-weight:600;color:#444;margin-bottom:5px;">Sessions per Month</label>
+          <div class="slider-row">
+            <input type="range" id="sl-tele" min="0" max="200" step="5" value="30" style="accent-color:var(--orange);" oninput="syncNum('tele',this.value)">
+            <div class="num-box"><input type="number" id="in-tele" value="30" min="0" oninput="syncSlider('tele',this.value)"></div>
+          </div>
+
+          <label style="display:block;font-size:0.82rem;font-weight:600;color:#444;margin-bottom:5px;">Price per Session</label>
+          <div class="slider-row">
+            <input type="range" id="sl-teleprice" min="100" max="2000" step="50" value="600" style="accent-color:var(--orange);" oninput="syncNum('teleprice',this.value)">
+            <div class="num-box"><span>₹</span><input type="number" id="in-teleprice" value="600" min="0" step="50" oninput="syncSlider('teleprice',this.value)"></div>
+          </div>
+        </div>
+
+        <button id="calc-reset" style="margin-top:20px;width:100%;padding:11px;background:white;border:1.5px solid #c8d0e8;border-radius:12px;font-size:0.82rem;font-weight:700;color:#666;cursor:pointer;transition:all 0.2s;">↺ Reset to Defaults</button>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:18px;">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="kpi-card" style="background:linear-gradient(135deg,var(--dark),#1a3060);">
+            <div class="kpi-label">Year 1 Investment</div>
+            <div class="kpi-value" id="out-investment" style="color:#4DD6E0;">₹1,95,000</div>
+            <div class="kpi-sub">Setup + 12 × Monthly</div>
+          </div>
+          <div class="kpi-card" style="background:linear-gradient(135deg,var(--green),#0E4A2A);">
+            <div class="kpi-label">Year 1 Revenue</div>
+            <div class="kpi-value" id="out-revenue" style="color:#7FFFC4;">₹5,15,100</div>
+            <div class="kpi-sub">All 3 streams</div>
+          </div>
+          <div class="kpi-card" style="background:linear-gradient(135deg,#7B0040,var(--purple));">
+            <div class="kpi-label">Net Profit (Year 1)</div>
+            <div class="kpi-value" id="out-profit" style="color:#FFB3E6;">₹3,20,100</div>
+            <div class="kpi-sub">Revenue − Investment</div>
+          </div>
+          <div class="kpi-card" style="background:linear-gradient(135deg,var(--orange),#7A4500);">
+            <div class="kpi-label">ROI</div>
+            <div class="kpi-value" id="out-roi" style="color:#FFDDA0;">164%</div>
+            <div class="kpi-sub">Net Profit ÷ Investment</div>
+          </div>
+        </div>
+
+        <div id="payback-badge" style="background:linear-gradient(135deg,#e8f4eb,#dff0f6);border:2px solid var(--green);border-radius:16px;padding:18px 22px;display:flex;align-items:center;gap:14px;">
+          <span style="font-size:2rem;flex-shrink:0;">📅</span>
+          <div>
+            <div style="font-weight:800;color:var(--green);font-size:0.92rem;margin-bottom:4px;">Payback Period</div>
+            <div id="out-payback" style="font-size:0.88rem;color:#333;line-height:1.6;">—</div>
+          </div>
+        </div>
+
+        <div style="background:white;border-radius:18px;overflow:hidden;box-shadow:var(--card-shadow);">
+          <div style="background:linear-gradient(135deg,var(--teal),#005060);padding:14px 20px;color:white;">
+            <div style="font-weight:800;font-size:0.9rem;">Revenue Breakdown — Year 1</div>
+          </div>
+          <div style="padding:4px 20px 14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #eee;font-size:0.86rem;">
+              <span style="color:#555;font-weight:500;">🧑‍⚕️ New Patients</span>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div class="rev-bar" id="bar-patients" style="background:var(--pink);"></div>
+                <span id="out-patients-rev" style="font-weight:700;color:var(--pink);min-width:82px;text-align:right;"></span>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #eee;font-size:0.86rem;">
+              <span style="color:#555;font-weight:500;">📱 App Subscriptions</span>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div class="rev-bar" id="bar-app" style="background:var(--purple);"></div>
+                <span id="out-app-rev" style="font-weight:700;color:var(--purple);min-width:82px;text-align:right;"></span>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px dashed #eee;font-size:0.86rem;">
+              <span style="color:#555;font-weight:500;">📞 Teleconsults</span>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div class="rev-bar" id="bar-tele" style="background:var(--orange);"></div>
+                <span id="out-tele-rev" style="font-weight:700;color:var(--orange);min-width:82px;text-align:right;"></span>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;font-size:0.9rem;font-weight:900;color:var(--dark);">
+              <span>TOTAL REVENUE</span><span id="out-total-rev-table"></span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#edf6f0;border-radius:10px;font-size:0.9rem;font-weight:900;">
+              <span style="color:var(--green);">NET PROFIT</span>
+              <span id="out-profit-table" style="color:var(--green);"></span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:white;border-radius:18px;padding:18px 20px;box-shadow:var(--card-shadow);">
+          <div style="font-weight:800;font-size:0.88rem;color:var(--dark);margin-bottom:3px;">Revenue vs Investment — Visual</div>
+          <div style="font-size:0.75rem;color:#888;margin-bottom:12px;">Updates live as you adjust inputs above</div>
+          <canvas id="liveRoiChart" height="160"></canvas>
+        </div>
+
+        <div style="background:white;border-radius:18px;padding:18px 20px;box-shadow:var(--card-shadow);">
+          <div style="font-weight:800;font-size:0.88rem;color:var(--dark);margin-bottom:3px;">Monthly Revenue vs Payback Progress</div>
+          <div style="font-size:0.75rem;color:#888;margin-bottom:14px;">First 12 months — how quickly you recover the investment</div>
+          <div id="monthly-bars" style="display:flex;flex-direction:column;gap:5px;"></div>
+        </div>
+
+      </div></div><script>
+    (function(){
+      const SETUP_FEE    = 75000;       // Fixed — as quoted in proposal above
+      const MONTHLY_RET  = 10000;       // Updated to ₹10,000/mo retainer
+      const CLINIC_SHARE = 0.15;        // Fixed 15% — non-adjustable
+
+      const DEFAULTS = {
+        patients:30, avgval:500,
+        'start-mo': 50, 'start-yr': 100,
+        'grow-mo': 20, 'grow-yr': 0,
+        'elite-mo': 10, 'elite-yr': 0,
+        tele:30, teleprice:600
+      };
+
+      function fmt(n){
+        if(n>=100000) return '₹'+parseFloat((n/100000).toFixed(2))+'L';
+        if(n>=1000)   return '₹'+Math.round(n).toLocaleString('en-IN');
+        return '₹'+Math.round(n);
+      }
+      function fmtFull(n){ return '₹'+Math.round(n).toLocaleString('en-IN'); }
+      function getV(id){ return parseFloat(document.getElementById('in-'+id).value)||0; }
+      function el(id){ return document.getElementById(id); }
+
+      window.syncNum = function(id,v){
+        const inp = document.getElementById('in-'+id);
+        if(inp) inp.value = v;
+        calc();
+      };
+      window.syncSlider = function(id,v){
+        const sl = document.getElementById('sl-'+id);
+        if(sl){ sl.value = v; }
+        calc();
+      };
+
+      // Chart
+      let liveChart = null;
+      function buildChart(invest, rev, profit){
+        const ctx = el('liveRoiChart').getContext('2d');
+        const data = {
+          labels:['Investment','Revenue','Net Profit'],
+          datasets:[{
+            data:[invest,rev,Math.max(0,profit)],
+            backgroundColor:['rgba(13,27,62,0.85)','rgba(27,122,75,0.85)','rgba(94,31,138,0.85)'],
+            borderRadius:8, borderSkipped:false
+          }]
+        };
+        if(liveChart){ liveChart.data.datasets[0].data=[invest,rev,Math.max(0,profit)]; liveChart.update('active'); return; }
+        liveChart = new Chart(ctx,{
+          type:'bar',
+          data,
+          options:{
+            responsive:true, indexAxis:'y',
+            plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:(c)=>fmtFull(c.raw) } } },
+            scales:{
+              x:{ ticks:{ callback:v=>fmt(v) }, grid:{color:'rgba(0,0,0,0.05)'} },
+              y:{ ticks:{font:{weight:'700'}} }
+            }
+          }
+        });
+      }
+
+      function buildMonthlyBars(monthlyRev, invest){
+        const wrap = el('monthly-bars');
+        if(!wrap) return;
+        wrap.innerHTML = '';
+        let cum = 0;
+        for(let m=1;m<=12;m++){
+          cum += monthlyRev;
+          const pct = Math.min(100, Math.round(cum/invest*100));
+          const reached = cum >= invest;
+          const bar = document.createElement('div');
+          bar.style.cssText='display:flex;align-items:center;gap:8px;font-size:0.76rem;';
+          bar.innerHTML = `
+            <span style="width:46px;font-weight:700;color:#444;flex-shrink:0;">Mo ${m}</span>
+            <div style="flex:1;background:#eee;border-radius:4px;height:10px;overflow:hidden;">
+              <div style="width:${pct}%;height:100%;background:${reached?'var(--green)':'var(--teal)'};border-radius:4px;transition:width 0.4s;"></div>
+            </div>
+            <span style="width:62px;text-align:right;color:${reached?'var(--green)':'var(--teal)'};font-weight:700;">${pct}%</span>
+            <span style="width:84px;text-align:right;color:#888;">${fmtFull(cum)}</span>
+            ${reached&&cum-monthlyRev<invest?'<span style="color:var(--green);font-weight:800;font-size:0.78rem;">✅ Break-even!</span>':''}
+          `;
+          wrap.appendChild(bar);
+        }
+      }
+
+      window.calc = function(){
+        // ── FIXED (non-adjustable per proposal) ─────────────────
+        const setup    = SETUP_FEE;       // ₹75,000 one-time setup
+        const monthly  = MONTHLY_RET;     // ₹10,000/mo fixed retainer
+        const share    = CLINIC_SHARE;    // 15% fixed clinic share
+
+        // ── ADJUSTABLE INPUTS ────────────────────────────────────
+        const patients  = getV('patients');
+        const avgval    = getV('avgval');
+        const tele      = getV('tele');
+        const teleprice = getV('teleprice');
+        
+        const startMo   = getV('start-mo');
+        const startYr   = getV('start-yr');
+        const growMo    = getV('grow-mo');
+        const growYr    = getV('grow-yr');
+        const eliteMo   = getV('elite-mo');
+        const eliteYr   = getV('elite-yr');
+
+        // ── INVESTMENT ──────────────────────────────────────────
+        // Year 1 Investment = Setup Fee (one-time) + Monthly Retainer × 12
+        const invest   = setup + monthly * 12;
+
+        // ── REVENUE STREAMS ─────────────────────────────────────
+        // New Patients Revenue = Patients/mo × Avg Revenue/visit × 12 months
+        const patRev   = patients * avgval * 12;
+
+        // App Subscription Revenue
+        const appRev   = (
+          (startMo * 199 * 12) + (startYr * 199 * 12) +
+          (growMo * 599 * 12)  + (growYr * 599 * 12) +
+          (eliteMo * 1299 * 12) + (eliteYr * 1299 * 12)
+        ) * share;
+
+        // Teleconsult Revenue = Sessions/mo × Price/session × 12 months
+        const teleRev  = tele * teleprice * 12;
+
+        const totalRev = patRev + appRev + teleRev;
+
+        // ── PROFIT & ROI ─────────────────────────────────────────
+        // Net Profit = Total Revenue − Year 1 Investment
+        const profit   = totalRev - invest;
+
+        // ROI % = (Net Profit ÷ Investment) × 100
+        const roi      = invest > 0 ? (profit / invest * 100) : 0;
+
+        // Payback Period = Year 1 Investment ÷ Average Monthly Revenue
+        const monthlyRev = totalRev / 12;
+        const paybackMo  = monthlyRev > 0 ? Math.ceil(invest / monthlyRev) : null;
+
+        // Update fixed investment display
+        if(el('out-invest-display')) el('out-invest-display').textContent = fmtFull(invest);
+
+        // KPI cards
+        el('out-investment').textContent = fmtFull(invest);
+        el('out-revenue').textContent    = fmtFull(totalRev);
+        el('out-profit').textContent     = fmtFull(profit);
+        el('out-roi').textContent        = Math.round(roi) + '%';
+
+        // Payback
+        if(paybackMo !== null){
+          el('out-payback').innerHTML =
+            paybackMo <= 12
+            ? `Full investment recovered by <strong>Month ${paybackMo}</strong>. Every rupee after that is net profit.`
+            : `Payback in <strong>Month ${paybackMo}</strong> (~${(paybackMo/12).toFixed(1)} years). Consider increasing patient volume or subscription price.`;
+        } else {
+          el('out-payback').textContent = 'Set revenue values above to see payback period.';
+        }
+        // Colour the badge
+        el('payback-badge').style.borderColor = paybackMo && paybackMo<=8 ? 'var(--green)' : paybackMo && paybackMo<=12 ? 'var(--orange)' : 'var(--red)';
+
+        // Breakdown table
+        el('out-patients-rev').textContent  = fmtFull(patRev);
+        el('out-app-rev').textContent       = fmtFull(appRev);
+        el('out-tele-rev').textContent      = fmtFull(teleRev);
+        el('out-total-rev-table').textContent = fmtFull(totalRev);
+        el('out-profit-table').textContent  = fmtFull(profit);
+
+        // Mini bars in breakdown
+        const maxRev = Math.max(patRev,appRev,teleRev,1);
+        el('bar-patients').style.width = Math.round(patRev/maxRev*100)+'px';
+        el('bar-app').style.width      = Math.round(appRev/maxRev*100)+'px';
+        el('bar-tele').style.width     = Math.round(teleRev/maxRev*100)+'px';
+
+        buildChart(invest, totalRev, profit);
+        buildMonthlyBars(monthlyRev, invest);
+      };
+
+      window.resetCalc = function(){
+        // Reset adjustable inputs
+        Object.entries(DEFAULTS).forEach(([k,v])=>{
+          const sl=document.getElementById('sl-'+k), inp=document.getElementById('in-'+k);
+          if(sl) sl.value=v;
+          if(inp) inp.value=v;
+        });
+        calc();
+      };
+
+      document.getElementById('calc-reset').addEventListener('click', resetCalc);
+
+      // Initial render
+      calc();
+    })();
+    </script>
+
+  </div>
+</div>
+</div>
+
+<div class="bg-light">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">🗓️ Implementation Timeline</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--teal),#005060)">11</div>
+      <div class="step-header-text">
+        <h2>60 Days to Full Digital Domination</h2>
+        <p>A clear, week-by-week plan — so you know exactly what happens, when, and what is required from Spandan</p>
+      </div>
+    </div>
+
+    <div class="impl-timeline">
+      <div class="impl-tl-item">
+        <div class="impl-tl-dot">W1–2</div>
+        <div class="impl-tl-content">
+          <h4>🌐 Website + Reputation Recovery Begins</h4>
+          <ul>
+            <li>Website live: doctor profiles, services pages, online booking form</li>
+            <li>Google Business Profile claimed, verified and fully optimised</li>
+            <li>Negative review on CardiologistIndia.com — professional response posted</li>
+            <li>All third-party listings reviewed and updated</li>
+          </ul>
+          <span class="impl-time-badge">⏱ Spandan's time required: ~2 hours</span>
+        </div>
+      </div>
+
+      <div class="impl-tl-item">
+        <div class="impl-tl-dot">W3–4</div>
+        <div class="impl-tl-content" style="border-left-color:var(--pink);">
+          <h4>⭐ Review Campaign + Social Media Activation</h4>
+          <ul>
+            <li>WhatsApp review request system activated for all existing patients</li>
+            <li>First 50+ positive verified Google reviews collected</li>
+            <li>Instagram + Facebook pages live, branded, and active</li>
+            <li>First batch of content published across all channels</li>
+          </ul>
+          <span class="impl-time-badge">⏱ Spandan's time required: ~1 hour</span>
+        </div>
+      </div>
+
+      <div class="impl-tl-item">
+        <div class="impl-tl-dot">W5–6</div>
+        <div class="impl-tl-content" style="border-left-color:var(--purple);">
+          <h4>📱 App Development + Staff Briefing</h4>
+          <ul>
+            <li>Spandan-branded patient app built with smart booking system</li>
+            <li>Administration reviews features and approves design</li>
+            <li>Staff briefed on app — zero manual booking calls from Day 1</li>
+            <li>Teleconsultation system tested and ready</li>
+          </ul>
+          <span class="impl-time-badge">⏱ Spandan's time required: ~1 hour</span>
+        </div>
+      </div>
+
+      <div class="impl-tl-item">
+        <div class="impl-tl-dot">W7–8</div>
+        <div class="impl-tl-content" style="border-left-color:var(--green);">
+          <h4>🚀 Full System Launch</h4>
+          <ul>
+            <li>App live in patients' hands — bookings go fully digital</li>
+            <li>Google Ads running for cardiology + endocrinology keywords in CSN</li>
+            <li>Content publishing weekly across all channels</li>
+            <li>200+ review target on track — reputation transformed</li>
+          </ul>
+          <span class="impl-time-badge">⏱ Spandan's time required: ~30 minutes</span>
+        </div>
+      </div>
+
+      <div class="impl-tl-item">
+        <div class="impl-tl-dot">W9+</div>
+        <div class="impl-tl-content" style="border-left-color:var(--orange);">
+          <h4>📈 Ongoing Growth + Monthly Optimisation</h4>
+          <ul>
+            <li>Monthly performance review — rankings, new patients, revenue tracked</li>
+            <li>Ad campaigns adjusted based on real data and results</li>
+            <li>Content strategy evolved based on what's working</li>
+          </ul>
+          <span class="impl-time-badge">⏱ Spandan's time required: ~15 minutes/month</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,#e8f4eb,#dff0f6);border-left:5px solid var(--green);border-radius:0 16px 16px 0;padding:22px 28px;margin:24px 0;display:flex;gap:16px;align-items:flex-start;">
+      <span style="font-size:1.6rem;flex-shrink:0;">✅</span>
+      <div>
+        <strong style="color:var(--green);font-size:1rem;">Total Time Required from Spandan Administration: Under 5 hours across 60 days.</strong>
+        <p style="color:#444;font-size:0.93rem;line-height:1.7;margin-top:6px;">You run the clinic and focus on your patients. We handle every single aspect of the digital build, launch, and ongoing growth. One call for updates. One team fully responsible.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-white">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">🛡️ Performance Guarantee</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--green),#0E4A2A)">12</div>
+      <div class="step-header-text">
+        <h2>The 90-Day Performance Guarantee</h2>
+        <p>Not a promise — a contractual commitment with a 50% refund clause if targets are not met</p>
+      </div>
+    </div>
+
+    <div class="guarantee-section">
+      <div class="guarantee-title">🛡️ 90-Day Performance Guarantee</div>
+      <div class="guarantee-subtitle">If within 90 days of launch, Spandan does NOT achieve ALL of the following — a 50% refund of the setup fee is issued. No questions asked. No delays.</div>
+
+      <div class="guarantee-items">
+        <div class="guarantee-item">
+          <div class="gi-num">50+</div>
+          <div class="gi-label">New patient enquiries from digital channels</div>
+        </div>
+        <div class="guarantee-item">
+          <div class="gi-num">200+</div>
+          <div class="gi-label">New verified positive Google reviews collected</div>
+        </div>
+        <div class="guarantee-item">
+          <div class="gi-num">20%</div>
+          <div class="gi-label">Measurable increase in appointment bookings</div>
+        </div>
+      </div>
+
+      <div class="guarantee-promise">
+        "Give us 90 days to prove this works. If we fail — you get half your money back. If we succeed — Spandan becomes the first-choice clinic for cardiology and endocrinology in Chhatrapati Sambhaji Nagar."
+      </div>
+      <div class="guarantee-refund">💚 50% Setup Fee Refund if Targets Are Not Met — Contractually Guaranteed</div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="bg-light">
+<div class="section">
+  <div class="section-inner">
+    <div class="section-pill">🧠 Objection Handling</div>
+    <div class="step-header">
+      <div class="step-number-badge" style="background:linear-gradient(135deg,var(--purple),var(--pink))">13</div>
+      <div class="step-header-text">
+        <h2>Answers to Every Concern — Before You Ask</h2>
+        <p>Honest, confident responses to the questions Gore Sir is most likely to raise</p>
+      </div>
+    </div>
+
+    <div class="obj-card">
+      <div class="obj-q">❓ "We already have enough patients. We don't need this."</div>
+      <div class="obj-a">The question isn't whether Spandan has enough patients <em>today</em>. The question is: will you have enough in 2 years, when Medicover has doubled its marketing budget and smaller clinics are generating 500+ monthly online enquiries? Going digital protects what Spandan has already built — and <strong>keeps you strong as competition intensifies.</strong></div>
+    </div>
+
+    <div class="obj-card">
+      <div class="obj-q">❓ "The price is high for us."</div>
+      <div class="obj-a">That is exactly why there is a Custom Package (Option C). We can start with the single most urgent need — the negative review visible on Google. That alone is turning away new patients every week. We can begin with just reputation recovery and add services as you grow. <strong>What is Spandan's most urgent digital problem right now?</strong> Let's start there.</div>
+    </div>
+
+    <div class="obj-card">
+      <div class="obj-q">❓ "We tried something like this before and it didn't work."</div>
+      <div class="obj-a">That is extremely common — and it almost always happens because separate vendors don't work as one unified system. Nobody owns the result, nobody is accountable. This is why the entire system is run as <strong>one unified solution with a single point of contact and a 90-day contractual guarantee.</strong> The previous approach had no guarantee. This one does.</div>
+    </div>
+
+    <div class="obj-card">
+      <div class="obj-q">❓ "Can we think about it?"</div>
+      <div class="obj-a">Of course — take all the time you need. What I'd suggest: let us do the FREE 45-minute digital audit first. No cost, no commitment. You'll see exactly where Spandan ranks today, what the negative review is costing monthly, and what 90 days of action could look like. <strong>You keep the full audit report regardless. Can we schedule that audit this week?</strong></div>
+    </div>
+
+    <div class="obj-card">
+      <div class="obj-q">❓ "We don't have staff time to manage this."</div>
+      <div class="obj-a">That is exactly why the app is the most important part of this system. Right now your front desk handles 30–50 phone calls daily just for bookings. With the app, 80% of those bookings happen automatically. <strong>Your staff don't manage the digital system — we do. Spandan actually SAVES 2–3 hours of staff time every day by starting this.</strong></div>
+    </div>
+
+    <div class="obj-card">
+      <div class="obj-q">❓ "How do we know the numbers in the projection are real?"</div>
+      <div class="obj-a">Fair question. The projections are based on three sources: verified competitor enquiry data from Justdial and Google (April 2026), the Dr. Tushar Idhate clinic case study (40% enquiry increase post-launch), and CSN market search volume data. The conservative scenario assumes only 20 new patients per month — that is less than 1 new patient per working day. <strong>Spandan's existing walk-in OPD already exceeds that. The digital layer is purely additional revenue on top.</strong></div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<section class="cta-section">
+  <h2 style="position:relative;z-index:2;">Spandan patients are choosing competitors<br>right now — every week of delay is revenue<br>you cannot recover.</h2>
+  <p>A FREE 45-minute digital audit shows you exactly what patients see when they search for Spandan today — and the three actions with fastest impact. The report is yours to keep. No commitment.</p>
+  
+  <div style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.22);border-radius:16px;padding:24px 36px;max-width:660px;margin:0 auto 36px;text-align:left;position:relative;z-index:2;">
+    <h3 style="color:#4DD6E0;font-size:1rem;font-weight:800;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px;">📋 What the FREE 45-Min Digital Audit Covers:</h3>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;gap:10px;align-items:flex-start;font-size:0.92rem;color:rgba(255,255,255,0.9);">✅ <span>Spandan's exact current Google ranking vs. Pulse, Udgire &amp; Ganpati</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start;font-size:0.92rem;color:rgba(255,255,255,0.9);">✅ <span>Real monthly search volume for your specialties in CSN</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start;font-size:0.92rem;color:rgba(255,255,255,0.9);">✅ <span>ROI projection using Spandan's actual OPD numbers</span></div>
+    </div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-bottom:50px;position:relative;z-index:2;">
+    <a href="#" class="cta-btn">📞 Book Your FREE Audit</a>
+    <a href="#" class="cta-btn" style="background:transparent;color:white;border:2px solid rgba(255,255,255,0.5);">📱 View Live App Demo</a>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:30px;justify-content:center;position:relative;z-index:2;">
+    <div style="text-align:center;">
+      <div style="font-size:2rem;font-weight:900;">45 Min</div>
+      <div style="opacity:0.8;font-size:0.9rem;">FREE Digital Audit</div>
+    </div>
+    <div style="width:1px;background:rgba(255,255,255,0.25);"></div>
+    <div style="text-align:center;">
+      <div style="font-size:2rem;font-weight:900;">₹0</div>
+      <div style="opacity:0.8;font-size:0.9rem;">No Commitment Needed</div>
+    </div>
+    <div style="width:1px;background:rgba(255,255,255,0.25);"></div>
+    <div style="text-align:center;">
+      <div style="font-size:2rem;font-weight:900;">45–60</div>
+      <div style="opacity:0.8;font-size:0.9rem;">Days to Go Live</div>
+    </div>
+    <div style="width:1px;background:rgba(255,255,255,0.25);"></div>
+    <div style="text-align:center;">
+      <div style="font-size:2rem;font-weight:900;">₹3.2L+</div>
+      <div style="opacity:0.8;font-size:0.9rem;">Year 1 Net Profit Potential</div>
+    </div>
+  </div>
+</section>
+
+
+<div style="background:#060B18;padding:40px 60px;text-align:center;color:rgba(255,255,255,0.4);font-size:0.85rem;">
+  <div style="font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:var(--pink);letter-spacing:4px;margin-bottom:8px;">🦋 SPANDAN</div>
+  <div style="color:#4DD6E0;font-size:0.8rem;letter-spacing:3px;margin-bottom:20px;">SUPER SPECIALITY CLINIC</div>
+  <div>Digital Growth Proposal | Prepared by Rohit Narhire | 11 April 2026</div>
+  <div style="margin-top:8px;">Customised exclusively for Gore Sir — Spandan Super Speciality Clinic, Chhatrapati Sambhaji Nagar</div>
+</div>
+
+
+<script>
+
+/* -------------------------------------------------------
+   CHART 1 — Patient Behaviour
+   FIX: Single deep teal colour — same metric, same family
+------------------------------------------------------- */
+new Chart(document.getElementById('patientChart'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Search Google before visiting',
+      'Read reviews before booking',
+      'Reject clinics with no online presence',
+      'Choose via website + social trust'
+    ],
+    datasets: [{
+      label: '% of Patients',
+      data: [81, 89, 74, 78],
+      backgroundColor: [
+        'rgba(0,123,138,0.80)',
+        'rgba(0,123,138,0.90)',
+        'rgba(0,123,138,0.65)',
+        'rgba(0,123,138,0.75)'
+      ],
+      borderRadius: 10,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ctx.raw + '% of patients' } }
+    },
+    scales: {
+      y: {
+        beginAtZero: true, max: 100,
+        ticks: { callback: v => v + '%' },
+        grid: { color: 'rgba(0,0,0,0.04)' }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+/* -------------------------------------------------------
+   CHART 2 — Competitor Visibility
+   FIX: All competitors = neutral grey · Spandan = crisis red
+        Eye goes immediately to Spandan bar
+------------------------------------------------------- */
+new Chart(document.getElementById('competitorChart'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Medicover Hospital',
+      'Care Ciigma Hospital',
+      'Hormone Clinic',
+      'Ganpati Diabetes Centre',
+      'Pulse Heart Clinic',
+      'Deogiri Diabetes Care',
+      'Dr. Udgire Heart Care',
+      'SPANDAN CLINIC ⚠'
+    ],
+    datasets: [{
+      label: 'Online Visibility Score',
+      data: [95, 85, 78, 80, 72, 68, 65, 15],
+      backgroundColor: [
+        '#BBBBBB','#BBBBBB','#BBBBBB','#BBBBBB',
+        '#BBBBBB','#BBBBBB','#BBBBBB',
+        '#C0392B'
+      ],
+      borderRadius: 8,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => 'Visibility: ' + ctx.raw + '/100' } }
+    },
+    scales: {
+      x: {
+        beginAtZero: true, max: 100,
+        ticks: { callback: v => v },
+        grid: { color: 'rgba(0,0,0,0.04)' }
+      },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+/* -------------------------------------------------------
+   CHART 3 — Setup Time
+   FIX: Updated to refined palette colours
+------------------------------------------------------- */
+new Chart(document.getElementById('setupChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Multiple Vendors — Old Way', 'One Partner — Unified System'],
+    datasets: [{
+      label: 'Setup Time (Months)',
+      data: [7.5, 1.5],
+      backgroundColor: ['rgba(192,57,43,0.85)', 'rgba(27,122,75,0.85)'],
+      borderRadius: 12,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ctx.raw + ' months avg' } }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { callback: v => v + ' mo' },
+        grid: { color: 'rgba(0,0,0,0.04)' }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+/* -------------------------------------------------------
+   CHART 4 — Revenue Doughnut
+   FIX: Rose + deep teal + emerald · centre total injected
+------------------------------------------------------- */
+const revenueChart = new Chart(document.getElementById('revenueChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['New Patient Revenue', 'App Subscriptions (15%)', 'Teleconsultations'],
+    datasets: [{
+      data: [210000, 269100, 36000],
+      backgroundColor: [
+        'rgba(181,24,122,0.88)',
+        'rgba(0,123,138,0.88)',
+        'rgba(27,122,75,0.88)'
+      ],
+      borderWidth: 3,
+      borderColor: '#fff',
+      hoverOffset: 20
+    }]
+  },
+  options: {
+    responsive: true,
+    cutout: '62%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: { padding: 20, font: { size: 12 }, usePointStyle: true, pointStyleWidth: 12 }
+      },
+      tooltip: { callbacks: { label: ctx => ctx.label + ': ₹' + ctx.raw.toLocaleString('en-IN') } }
+    }
+  },
+  plugins: [{
+    id: 'centreText',
+    afterDraw(chart) {
+      const { ctx, chartArea: { top, bottom, left, right } } = chart;
+      const cx = (left + right) / 2, cy = (top + bottom) / 2;
+      ctx.save();
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#0D1B3E';
+      ctx.font = 'bold 13px Poppins, sans-serif';
+      ctx.fillText('Total Revenue', cx, cy - 12);
+      ctx.font = 'bold 18px Montserrat, sans-serif';
+      ctx.fillStyle = '#1B7A4B';
+      ctx.fillText('₹5,15,100', cx, cy + 12);
+      ctx.restore();
+    }
+  }]
+});
+
+/* -------------------------------------------------------
+   CHART 5 — Conservative vs Realistic Bar
+   FIX: Steel blue (conservative) + emerald (realistic)
+        Orange was sending a "warning" signal for conservative
+------------------------------------------------------- */
+new Chart(document.getElementById('comparisonChart'), {
+  type: 'bar',
+  data: {
+    labels: ['New Patients', 'App Subscriptions', 'Teleconsults'],
+    datasets: [
+      {
+        label: 'Conservative estimate',
+        data: [120000, 107640, 18000],
+        backgroundColor: 'rgba(91,141,184,0.80)',
+        borderRadius: 8, borderSkipped: false
+      },
+      {
+        label: 'Realistic estimate',
+        data: [210000, 269100, 36000],
+        backgroundColor: 'rgba(27,122,75,0.88)',
+        borderRadius: 8, borderSkipped: false
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { usePointStyle: true, pointStyleWidth: 12 } },
+      tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ₹' + ctx.raw.toLocaleString('en-IN') } }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { callback: v => '₹' + (v/1000) + 'k' },
+        grid: { color: 'rgba(0,0,0,0.04)' }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+/* -------------------------------------------------------
+   CHART 6A — ROI Conservative (2-bar clarity)
+   FIX: Split the 5-bar confusion into two simple 2-bar charts
+        Investment (red) vs Return (steel blue)
+------------------------------------------------------- */
+new Chart(document.getElementById('roiChartA'), {
+  type: 'bar',
+  data: {
+    labels: ['Year 1 Investment', 'Conservative Revenue'],
+    datasets: [{
+      label: '₹',
+      data: [195000, 245640],
+      backgroundColor: ['rgba(192,57,43,0.85)', 'rgba(91,141,184,0.85)'],
+      borderRadius: 12, borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => '₹' + ctx.raw.toLocaleString('en-IN') } }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { callback: v => '₹' + (v/1000) + 'k' },
+        grid: { color: 'rgba(0,0,0,0.04)' }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+
+/* -------------------------------------------------------
+   CHART 6B — ROI Realistic (2-bar clarity)
+   Investment (red) vs Return (emerald)
+------------------------------------------------------- */
+new Chart(document.getElementById('roiChartB'), {
+  type: 'bar',
+  data: {
+    labels: ['Year 1 Investment', 'Realistic Revenue'],
+    datasets: [{
+      label: '₹',
+      data: [195000, 515100],
+      backgroundColor: ['rgba(192,57,43,0.85)', 'rgba(27,122,75,0.88)'],
+      borderRadius: 12, borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => '₹' + ctx.raw.toLocaleString('en-IN') } }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { callback: v => '₹' + (v/1000) + 'k' },
+        grid: { color: 'rgba(0,0,0,0.04)' }
+      },
+      x: { grid: { display: false } }
+    }
+  }
+});
+</script>
+</body>
+</html>
